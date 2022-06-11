@@ -15,3 +15,43 @@ rule inform(Type)
 
 rule inform(Total Time)
     regex "i (only)? have {Total Time}"
+"(soup) | (recipes) under {Total Time} minutes"
+
+
+
+
+"""
+
+possible user requests:
+what (type, time)
+how (time, recipe)
+is this
+do you have
+
+"""
+
+rule request(Type):
+    "(What) (non vegetarian|vegetarian|vegan) soup(s)|(recipes) (do you have)(?)"
+    "Is this (soup)|(recipe) (non vegetarian|vegetarian|vegan)?"
+    "(What) (non vegetarian|vegetarian|vegan) options do you have?"
+    "Do you have (non vegetarian|vegetarian|vegan) (options)| ((soup) recipes)| (soups)"
+    
+ 
+
+rule request(Steps)
+    "How do I make|prepare {Name} soup?"
+    "(Can you tell me) How to make {Name} soup(?)"
+    "(What is the) recipe for {Name} soup(?)"
+    "((What is the)|(Can you tell me the)) first|second|third step?"
+    "What do I do next?"
+    "What comes after first|second|third step"
+    "What comes after Step 1|2|3"
+    "Step 1|2|3"
+    
+rule request(Time)
+    "How (long|much time) does it take to make|cook?"
+    "What is the prep|cooking time?"
+    "(For) How long?"
+
+rule bye()
+    "Bye|Goodbye|Thank you|Thanks"
