@@ -1,2 +1,0 @@
-rule inform(time)
-    regex 
