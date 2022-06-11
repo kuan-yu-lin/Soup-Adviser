@@ -1,0 +1,17 @@
+"""
+possible user informs: 
+soup name, type, time, ingredient 
+
+"""
+
+rule inform(Name)
+    regex "i would like to have {Name} soup"
+    regex "i am looking for {Name} soup"
+    regex "i want the recipe for {Name} soup"
+
+rule inform(Type)
+    "i am a {Type}"
+    "i am looking for {Type} (soup(s)? (recipes)?)" 
+
+rule inform(Total Time)
+    regex "i (only)? have {Total Time}"
