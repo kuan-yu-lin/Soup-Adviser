@@ -55,3 +55,15 @@ rule request(Time)
 
 rule bye()
     "Bye|Goodbye|Thank you|Thanks"
+    
+function slot_synonyms(slot)
+    "{IMPOSSIBLEREGEX()}"
+
+    if slot = "name"
+        "name"
+        "soup"
+        "{name} soup"
+    if slot = "type"
+        "{type} option(s)"
+        "{type} soup(s)"
+        "{type} soup options"
