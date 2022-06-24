@@ -1,0 +1,10 @@
+{
+    "python.analysis.extraPaths": [
+        "./utils",
+        "./utils/domain",
+        "./services/nlg/templates/parsing/parsers/functionparser",
+        "./services/nlg/templates/parsing/parsers/codeparser",
+        "./services/nlg/templates/parsing/parsers/messageparser",
+        "./services/nlg/templates/parsing/parsers/messageparser/data"
+    ]
+}
