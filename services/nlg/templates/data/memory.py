@@ -19,9 +19,7 @@
 
 from typing import Dict, List
 
-import sys
-sys.path.insert(0, '/home/kuanyu/Documents/GitHub/Soup_Advisor/utils/domain')
-from jsonlookupdomain import JSONLookupDomain
+from utils.domain.jsonlookupdomain import JSONLookupDomain
 
 
 class _FunctionDescription:

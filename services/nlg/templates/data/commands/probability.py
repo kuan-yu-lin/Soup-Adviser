@@ -17,7 +17,7 @@
 #
 ###############################################################################
 
-from command import Command
+from services.nlg.templates.data.commands.command import Command
 
 
 class Probability(Command):

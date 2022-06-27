@@ -19,9 +19,11 @@
 
 import os
 import sys
-sys.path.insert(0, '/home/kuanyu/Documents/GitHub/Soup_Advisor/services/nlg/templates/parsing')
 
-from automaton import ModifiedPushdownAutomaton
+head_location = os.path.abspath(os.path.join(os.path.abspath(__file__), '..', '..', '..')) # main folder of adviser
+sys.path.append(head_location)
+
+from services.nlg.templates.parsing.automaton import ModifiedPushdownAutomaton
 
 from services.nlg.templates.parsing.parsers.codeparser.states.statelist import ExpressionState, AcceptState
 

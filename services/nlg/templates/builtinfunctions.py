@@ -19,8 +19,8 @@
 
 from typing import List, Callable
 
-from data.commands.function import Function
-from data.memory import Memory, Variable, GlobalMemory
+from services.nlg.templates.data.commands.function import Function
+from services.nlg.templates.data.memory import Memory, Variable, GlobalMemory
 
 
 class PythonFunction(Function):

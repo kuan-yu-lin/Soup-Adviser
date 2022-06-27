@@ -20,14 +20,11 @@
 from random import choices
 from typing import List
 
-from command import Command
-from message import Message
-from specialcase import SpecialCaseException, SpecialCaseAddition
-import sys
-sys.path.insert(0, '/home/kuanyu/Documents/GitHub/Soup_Advisor/services/nlg/templates/data')
-sys.path.insert(0, '/home/kuanyu/Documents/GitHub/Soup_Advisor/services/nlg/templates/parsing/parsers/functionparser')
-from memory import Memory, Variable, GlobalMemory
-from functionparser import FunctionParser
+from services.nlg.templates.data.commands.command import Command
+from services.nlg.templates.data.commands.message import Message
+from services.nlg.templates.data.commands.specialcase import SpecialCaseException, SpecialCaseAddition
+from services.nlg.templates.data.memory import Memory, Variable, GlobalMemory
+from services.nlg.templates.parsing.parsers.functionparser.functionparser import FunctionParser
 
 FUNCTION_PARSER = FunctionParser()
 

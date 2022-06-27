@@ -1,17 +1,27 @@
-# copied from adviser.services.domain_tracker.domain_tracker
-# not sure if we need this part
+###############################################################################
+#
+# Copyright 2020, University of Stuttgart: Institute for Natural Language Processing (IMS)
+#
+# This file is part of Adviser.
+# Adviser is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3.
+#
+# Adviser is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Adviser.  If not, see <https://www.gnu.org/licenses/>.
+#
+###############################################################################
 
 """The console module provides ADVISER services for tracking current domain"""
 
-import os
-import sys
-head_path = os.path.abspath(os.path.join(os.path.abspath(__file__), '..', '..', '..'))
-sys.path.insert(0, head_path + '/services')
-sys.path.insert(0, head_path + '/utils')
-
-from service import PublishSubscribe
-from service import Service
-from domain import Domain
+from services.service import PublishSubscribe
+from services.service import Service
+from utils.domain import Domain
 from typing import List
 
 

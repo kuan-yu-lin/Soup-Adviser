@@ -1,21 +1,34 @@
-# copied from adviser.services.nlg.templates.templatefile
+###############################################################################
+#
+# Copyright 2020, University of Stuttgart: Institute for Natural Language Processing (IMS)
+#
+# This file is part of Adviser.
+# Adviser is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3.
+#
+# Adviser is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Adviser.  If not, see <https://www.gnu.org/licenses/>.
+#
+###############################################################################
 
 import sys
 from typing import Tuple, List, Dict, Callable
 
-
-## python files loaded below are copied from adviser.services.nlg.templates
-from builtinfunctions import PythonFunction, ForFunction, ForEntryFunction, ForEntryListFunction
-from data.commands.command import Command
-from data.commands.function import Function
-from data.commands.message import Message
-from data.commands.probability import Probability
-from data.commands.specialcase import SpecialCaseException, SpecialCaseAddition
-from data.commands.template import Template
-from data.memory import Memory, Variable, GlobalMemory
-from preprocessing import _Preprocessor
-## python files loaded above are copied from adviser.services.nlg.templates
-
+from services.nlg.templates.builtinfunctions import PythonFunction, ForFunction, ForEntryFunction, ForEntryListFunction
+from services.nlg.templates.data.commands.command import Command
+from services.nlg.templates.data.commands.function import Function
+from services.nlg.templates.data.commands.message import Message
+from services.nlg.templates.data.commands.probability import Probability
+from services.nlg.templates.data.commands.specialcase import SpecialCaseException, SpecialCaseAddition
+from services.nlg.templates.data.commands.template import Template
+from services.nlg.templates.data.memory import Memory, Variable, GlobalMemory
+from services.nlg.templates.preprocessing import _Preprocessor
 from utils.domain.jsonlookupdomain import JSONLookupDomain
 from utils.sysact import SysAct
 

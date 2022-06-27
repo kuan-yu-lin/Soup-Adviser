@@ -17,9 +17,7 @@
 #
 ###############################################################################
 
-import sys
-sys.path.insert(0, '/home/kuanyu/Documents/GitHub/Soup_Advisor/services/nlg/templates/data')
-from memory import Memory
+from services.nlg.templates.data.memory import Memory
 
 
 class Command:

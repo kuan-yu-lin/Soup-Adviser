@@ -1,24 +1,35 @@
-# copied from adviser.services.nlu.nlu
+###############################################################################
+#
+# Copyright 2020, University of Stuttgart: Institute for Natural Language Processing (IMS)
+#
+# This file is part of Adviser.
+# Adviser is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3.
+#
+# Adviser is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Adviser.  If not, see <https://www.gnu.org/licenses/>.
+#
+###############################################################################
 
 import json
 import os
 import re
-import sys
 from typing import List
 
-head_path = os.path.abspath(os.path.join(os.path.abspath(__file__), '..', '..', '..'))
-sys.path.insert(0, head_path + '/services')
-sys.path.insert(0, head_path + '/utils')
-sys.path.insert(0, head_path + '/utils/domain')
-
-from service import PublishSubscribe
-from service import Service
-from useract import UserAct, UserActionType
-from beliefstate import BeliefState
-from common import Language
-from jsonlookupdomain import JSONLookupDomain
-from logger import DiasysLogger
-from sysact import SysAct, SysActionType
+from services.service import PublishSubscribe
+from services.service import Service
+from utils import UserAct, UserActionType
+from utils.beliefstate import BeliefState
+from utils.common import Language
+from utils.domain.jsonlookupdomain import JSONLookupDomain
+from utils.logger import DiasysLogger
+from utils.sysact import SysAct, SysActionType
 
 
 def get_root_dir():
@@ -54,7 +65,8 @@ class HandcraftedNLU(Service):
 
     """
 
-    def __init__(self, domain: JSONLookupDomain, logger: DiasysLogger = DiasysLogger(), language: Language = None):
+    def __init__(self, domain: JSONLookupDomain, logger: DiasysLogger = DiasysLogger(),
+                 language: Language = None):
         """
         Loads
             - domain key

@@ -1,4 +1,22 @@
-# copied from advisor.utils.domain.jsonlookupdomain
+###############################################################################
+#
+# Copyright 2020, University of Stuttgart: Institute for Natural Language Processing (IMS)
+#
+# This file is part of Adviser.
+# Adviser is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3.
+#
+# Adviser is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Adviser.  If not, see <https://www.gnu.org/licenses/>.
+#
+###############################################################################
+
 
 import json
 import os
@@ -6,11 +24,7 @@ import sqlite3
 from io import StringIO
 from typing import List, Iterable
 
-import os
-import sys
-head_path = os.path.abspath(os.path.join(os.path.abspath(__file__), '..', '..', '..'))
-sys.path.insert(0, head_path + '/utils')
-from domain import Domain
+from utils.domain import Domain
 
 
 class JSONLookupDomain(Domain):

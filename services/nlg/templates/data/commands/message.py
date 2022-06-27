@@ -18,18 +18,14 @@
 ###############################################################################
 
 from typing import List
-import sys
-sys.path.insert(0, '/home/kuanyu/Documents/GitHub/Soup_Advisor/services/nlg/templates/parsing/parsers/codeparser')
-sys.path.insert(0, '/home/kuanyu/Documents/GitHub/Soup_Advisor/services/nlg/templates/parsing/parsers/messageparser')
-sys.path.insert(0, '/home/kuanyu/Documents/GitHub/Soup_Advisor/services/nlg/templates/parsing/parsers/messageparser/data')
 
-from command import Command
-from probability import Probability
-from memory import Memory
-from codeparser import CodeParser
-from messagecomponent import MessageComponent, \
+from services.nlg.templates.data.commands.command import Command
+from services.nlg.templates.data.commands.probability import Probability
+from services.nlg.templates.data.memory import Memory
+from services.nlg.templates.parsing.parsers.codeparser.codeparser import CodeParser
+from services.nlg.templates.parsing.parsers.messageparser.data.messagecomponent import MessageComponent, \
     MessageComponentType
-from messageparser import MessageParser
+from services.nlg.templates.parsing.parsers.messageparser.messageparser import MessageParser
 
 MESSAGE_PARSER = MessageParser()
 CODE_PARSER = CodeParser()
