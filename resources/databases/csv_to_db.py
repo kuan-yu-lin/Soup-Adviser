@@ -4,8 +4,8 @@ import sqlite3
 # reference link: https://towardsdatascience.com/turn-your-excel-workbook-into-a-sqlite-database-bc6d4fd206aa
 
 # Load CSV data into Pandas DataFrame
-soup = pd.read_csv('/home/kuanyu/Documents/GitHub/Soup_Advisor/resources/databases/recipes.csv')
-ingredient = pd.read_csv('/home/kuanyu/Documents/GitHub/Soup_Advisor/resources/databases/ingredients.csv')
+soup = pd.read_csv('/home/kuanyu/Documents/GitHub/soup_adviser/resources/databases/soup.csv')
+ingredient = pd.read_csv('/home/kuanyu/Documents/GitHub/soup_adviser/resources/databases/ingredients.csv')
 # print(df)
 
 conn = sqlite3.connect('soup.db') # Connect to SQLite database
@@ -77,8 +77,8 @@ cursor.execute(
         basil TEXT,
         kale TEXT,
         avocado TEXT,
-        PRIMARY KEY(Name),
-        FOREIGN KEY(Name) REFERENCES soup(Name)
+        PRIMARY KEY(name),
+        FOREIGN KEY(name) REFERENCES soup(name)
         );
     """
 )

@@ -108,7 +108,10 @@ class RegexFile:
         """
         slots = self._create_memory_from_user_act(user_act)
         for rule in self._rules[user_act.type.value]:
+            print('rule: ', rule)
             if rule.is_applicable(slots):
+                print('match')
+                print(rule.apply(slots))
                 return rule.apply(slots)
         raise BaseException('No rule was found for the given system act.')
 

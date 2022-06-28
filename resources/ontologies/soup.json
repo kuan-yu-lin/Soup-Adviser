@@ -25,31 +25,9 @@
             "Tomato Soup",
             "Lentil Soup"
         ],
-        "PrepTime": [
-            "5",
-            "7",
-            "10",
-            "14",
-            "15",
-            "30"
-        ],
-        "CookingTime": [
-            "5",
-            "10",
-            "13",
+        "total_time": [            
             "15",
             "20",
-            "30",
-            "35",
-            "45",
-            "50",
-            "85",
-            "120"
-        ],
-        "TotalTime": [            
-            "15",
-            "20",
-            "34",
             "35",
             "40",
             "55",
@@ -57,213 +35,213 @@
             "90",
             "150"
         ],
-        "ChickenStock": [
+        "chicken_stock": [
             "0",
             "1"
         ],
-        "ChickenBroth": [
+        "chicken_broth": [
             "0",
             "1"
         ],
-        "CookedChicken": [
+        "cooked_chicken": [
             "0",
             "1"
         ],
-        "GroundBeef": [
+        "ground_beef": [
             "0",
             "1"
         ],
-        "Tofu": [
+        "tofu": [
             "0",
             "1"
         ],
-        "Eggs": [
+        "egg": [
             "0",
             "1"
         ],
-        "Tomatoes": [
+        "tomato": [
             "0",
             "1"
         ],
-        "Potatoes": [
+        "potato": [
             "0",
             "1"
         ],
-        "Carrots": [
+        "carrot": [
             "0",
             "1"
         ],
-        "Beans": [
+        "bean": [
             "0",
             "1"
         ],
-        "Lentils": [
+        "lentil": [
             "0",
             "1"
         ],
-        "Corn": [
+        "corn": [
             "0",
             "1"
         ],
-        "Broccoli": [
+        "broccoli": [
             "0",
             "1"
         ],
-        "EvaporatedMilk": [
+        "evaporated_milk": [
             "0",
             "1"
         ],
-        "Cornstarch": [
+        "cornstarch": [
             "0",
             "1"
         ],
-        "JapaneseTurnip": [
+        "japanese_turnip": [
             "0",
             "1"
         ],
-        "Salsa": [
+        "salsa": [
             "0",
             "1"
         ],
-        "HotPepperSauce": [
+        "hot_pepper_sauce": [
             "0",
             "1"
         ],
-        "Scallions": [
+        "scallion": [
             "0",
             "1"
         ],
-        "Onions": [
+        "onion": [
             "0",
             "1"
         ],
-        "Leek": [
+        "leek": [
             "0",
             "1"
         ],
-        "Celery": [
+        "celery": [
             "0",
             "1"
         ],
-        "Cumin": [
+        "cumin": [
             "0",
             "1"
         ],
-        "Ginger": [
+        "ginger": [
             "0",
             "1"
         ],
-        "Thyme": [
+        "thyme": [
             "0",
             "1"
         ],
-        "Miso": [
+        "miso": [
             "0",
             "1"
         ],
-        "Pasta": [
+        "pasta": [
             "0",
             "1"
         ],
-        "Garlic": [
+        "garlic": [
             "0",
             "1"
         ],
-        "Mushrooms": [
+        "mushroom": [
             "0",
             "1"
         ],
-        "Basil": [
+        "basil": [
             "0",
             "1"
         ],
-        "Kale": [
+        "kale": [
             "0",
             "1"
         ],
-        "Avocado": [
+        "avocado": [
             "0",
             "1"
         ]
     },
     "key": "Name",
     "requestable": [
-        "Name",
-        "PrepTime",
-        "CookingTime",
-        "TotalTime",
-        "Step1Prep",
-        "Step2Process",
-        "Step3Seasoning",
-        "ChickenStock",
-        "ChickenBroth",
-        "CookedChicken",
-        "GroundBeef",
-        "Tofu",
-        "Eggs",
-        "Tomatoes",
-        "Potatoes",
-        "Carrots",
-        "Beans",
-        "Lentils",
-        "Corn",
-        "Broccoli",
-        "EvaporatedMilk",
-        "Cornstarch",
-        "JapaneseTurnip",
-        "Salsa",
-        "HotPepperSauce",
-        "Scallions",
-        "Onions",
-        "Leek",
-        "Celery",
-        "Cumin",
-        "Ginger",
-        "Thyme",
-        "Miso",
-        "Pasta",
-        "Garlic",
-        "Mushrooms",
-        "Basil",
-        "Kale",
-        "Avocado"
+        "name",
+        "prep_time",
+        "cook_time",
+        "total_time",
+        "step_one",
+        "step_two",
+        "step_three",
+        "chicken_stock",
+        "chicken_broth",
+        "cooked_chicken",
+        "ground_beef",
+        "tofu",
+        "egg",
+        "tomato",
+        "potato",
+        "carrot",
+        "bean",
+        "lentil",
+        "corn",
+        "broccoli",
+        "evaporated_milk",
+        "cornstarch",
+        "japanese_turnip",
+        "salsa",
+        "hot_pepper_sauce",
+        "scallion",
+        "onion",
+        "leek",
+        "celery",
+        "cumin",
+        "ginger",
+        "thyme",
+        "miso",
+        "pasta",
+        "garlic",
+        "mushroom",
+        "basil",
+        "kale",
+        "avocado"
     ],
     "system_requestable": [
-        "Name",
-        "PrepTime",
-        "CookingTime",
-        "TotalTime",
-        "ChickenStock",
-        "ChickenBroth",
-        "CookedChicken",
-        "GroundBeef",
-        "Tofu",
-        "Eggs",
-        "Tomatoes",
-        "Potatoes",
-        "Carrots",
-        "Beans",
-        "Lentils",
-        "Corn",
-        "Broccoli",
-        "EvaporatedMilk",
-        "Cornstarch",
-        "JapaneseTurnip",
-        "Salsa",
-        "HotPepperSauce",
-        "Scallions",
-        "Onions",
-        "Leek",
-        "Celery",
-        "Cumin",
-        "Ginger",
-        "Thyme",
-        "Miso",
-        "Pasta",
-        "Garlic",
-        "Mushrooms",
-        "Basil",
-        "Kale",
-        "Avocado"
+        "name",
+        "prep_time",
+        "cook_time",
+        "total_time",
+        "chicken_stock",
+        "chicken_broth",
+        "cooked_chicken",
+        "ground_beef",
+        "tofu",
+        "egg",
+        "tomato",
+        "potato",
+        "carrot",
+        "bean",
+        "lentil",
+        "corn",
+        "broccoli",
+        "evaporated_milk",
+        "cornstarch",
+        "japanese_turnip",
+        "salsa",
+        "hot_pepper_sauce",
+        "scallion",
+        "onion",
+        "leek",
+        "celery",
+        "cumin",
+        "ginger",
+        "thyme",
+        "miso",
+        "pasta",
+        "garlic",
+        "mushroom",
+        "basil",
+        "kale",
+        "avocado"
     ]
 }

@@ -7,22 +7,113 @@ rule inform(name)
     "I want {name}( soup)?"
 
 rule inform(total_time)
-    "I( only)? have {total_time}"
+    "I( only)? have {total_time} minutes"
 
 # how to write the nlu rule for "I have 30 minutes", then I get all the recipes that the total_time of them are less than 30 minutes.
 
+# how to set a rule for making "I have 1 hour and 30 minute" into total_time = "90"?
+
+rule inform(chicken_stock)
+    "What is the soup with {slot_synonyms("chicken_stock")}"
+
+rule inform(chicken_broth)
+    "What is the soup with {slot_synonyms("chicken_broth")}"
+
+rule inform(cooked_chicken)
+    "What is the soup with {slot_synonyms("cooked_chicken")}"
+
+rule inform(ground_beef)
+    "What is the soup with {slot_synonyms("ground_beef")}"
+
+rule inform(tofu)
+    "What is the soup with {slot_synonyms("tofu")}"
+
+rule inform(egg)
+    "What is the soup with {slot_synonyms("egg")}"
+
+rule inform(tomato)
+    "What is the soup with {slot_synonyms("tomato")}"
+
+rule inform(potato)
+    "What is the soup with {slot_synonyms("potato")}"
+
+rule inform(carrot)
+    "What is the soup with {slot_synonyms("carrot")}"
+
+rule inform(bean)
+    "What is the soup with {slot_synonyms("bean")}"
+
+rule inform(lentil)
+    "What is the soup with {slot_synonyms("lentil")}"
+
+rule inform(corn)
+    "What is the soup with {slot_synonyms("corn")}"
+
+rule inform(broccoli)
+    "What is the soup with {slot_synonyms("broccoli")}"
+
+rule inform(evaporated_milk)
+    "What is the soup with {slot_synonyms("evaporated_milk")}"
+
+rule inform(cornstarch)
+    "What is the soup with {slot_synonyms("cornstarch")}"
+
+rule inform(japanese_turnip)
+    "What is the soup with {slot_synonyms("japanese_turnip")}"
+
+rule inform(salsa)
+    "What is the soup with {slot_synonyms("salsa")}"
+
+rule inform(hot_pepper_sauce)
+    "What is the soup with {slot_synonyms("hot_pepper_sauce")}"
+
+rule inform(scallion)
+    "What is the soup with {slot_synonyms("scallion")}"
+
+rule inform(onion)
+    "What is the soup with {slot_synonyms("onion")}"
+
+rule inform(leek)
+    "What is the soup with {slot_synonyms("leek")}"
+
+rule inform(celery)
+    "What is the soup with {slot_synonyms("celery")}"
+
+rule inform(cumin)
+    "What is the soup with {slot_synonyms("cumin")}"
+
+rule inform(ginger)
+    "What is the soup with {slot_synonyms("ginger")}"
+
+rule inform(thyme)
+    "What is the soup with {slot_synonyms("thyme")}"
+
+rule inform(miso)
+    "What is the soup with {slot_synonyms("miso")}"
+
+rule inform(pasta)
+    "What is the soup with {slot_synonyms("pasta")}"
+
+rule inform(garlic)
+    "What is the soup with {slot_synonyms("garlic")}"
+
+rule inform(mushroom)
+    "What is the soup with {slot_synonyms("mushroom")}"
+
+rule inform(basil)
+    "What is the soup with {slot_synonyms("basil")}"
+
+rule inform(kale)
+    "What is the soup with {slot_synonyms("kale")}"
+
+rule inform(avocado)
+    "What is the soup with {slot_synonyms("avocado")}"
 
 
 # All slots are requestable
 
 rule request(name)
-    #"what soup(s)? do you have"
-    #"what option(s)? do you have?"
-    "is this {slot_synonyms("name")}"
     "do you have {slot_synonyms("name")}"
-    "how to (make|do|prepare) {slot_synonyms("name")}"
-    #"which soup has {slot_synonyms("Ingredient")} in it"
-    #"I want to make( a| the)? soup with {slot_synonyms("Ingredient")}"
 
 rule request(prep_time)
     "how long is {slot_synonyms("prep_time")}"
@@ -31,31 +122,117 @@ rule request(cook_time)
     "how long is {slot_synonyms("cook_time")}"
 
 rule request(total_time)
-    "how (long|much time) does it take to (make|cook)( the soup| it)?"
-    "how long is {slot_synonyms("total_time")}( I need)?(( to make| to cook)( the soup| it)?)?"
+    "how long is {slot_synonyms("total_time")}"
 
 rule request(step_one)
-    #"(Can you tell me) how to make {slot_synonyms("name")}( soup)?"
     "what is {slot_synonyms("step_one")}"
 
 rule request(step_two)
     "what is {slot_synonyms("step_two")}"
-    #"what (comes|is) after {slot_synonyms("step_one")}"
-
-## "what do I do next" should this question be the rule for useract: 'repeat'?
 
 rule request(step_three)
     "what is {slot_synonyms("step_three")}"
-    #"what (comes|is) after {slot_synonyms("step_two")}"
 
-# should we set for getting 3 steps at one time? how?
+rule request(chicken_stock)
+    "do you have {slot_synonyms("chicken_stock")}"
 
+rule request(chicken_broth)
+    "do you have {slot_synonyms("chicken_broth")}"
 
+rule request(cooked_chicken)
+    "do you have {slot_synonyms("cooked_chicken")}"
+
+rule request(ground_beef)
+    "do you have {slot_synonyms("ground_beef")}"
+
+rule request(tofu)
+    "do you have {slot_synonyms("tofu")}"
+
+rule request(egg)
+    "do you have {slot_synonyms("egg")}"
+
+rule request(tomato)
+    "do you have {slot_synonyms("tomato")}"
+
+rule request(potato)
+    "do you have {slot_synonyms("potato")}"
+
+rule request(carrot)
+    "do you have {slot_synonyms("carrot")}"
+
+rule request(bean)
+    "do you have {slot_synonyms("bean")}"
+
+rule request(lentil)
+    "do you have {slot_synonyms("lentil")}"
+
+rule request(corn)
+    "do you have {slot_synonyms("corn")}"
+
+rule request(broccoli)
+    "do you have {slot_synonyms("broccoli")}"
+
+rule request(evaporated_milk)
+    "do you have {slot_synonyms("evaporated_milk")}"
+
+rule request(cornstarch)
+    "do you have {slot_synonyms("cornstarch")}"
+
+rule request(japanese_turnip)
+    "do you have {slot_synonyms("japanese_turnip")}"
+
+rule request(salsa)
+    "do you have {slot_synonyms("salsa")}"
+
+rule request(hot_pepper_sauce)
+    "do you have {slot_synonyms("hot_pepper_sauce")}"
+
+rule request(scallion)
+    "do you have {slot_synonyms("scallion")}"
+
+rule request(onion)
+    "do you have {slot_synonyms("onion")}"
+
+rule request(leek)
+    "do you have {slot_synonyms("leek")}"
+
+rule request(celery)
+    "do you have {slot_synonyms("celery")}"
+
+rule request(cumin)
+    "do you have {slot_synonyms("cumin")}"
+
+rule request(ginger)
+    "do you have {slot_synonyms("ginger")}"
+
+rule request(thyme)
+    "do you have {slot_synonyms("thyme")}"
+
+rule request(miso)
+    "do you have {slot_synonyms("miso")}"
+
+rule request(pasta)
+    "do you have {slot_synonyms("pasta")}"
+
+rule request(garlic)
+    "do you have {slot_synonyms("garlic")}"
+
+rule request(mushroom)
+    "do you have {slot_synonyms("mushroom")}"
+
+rule request(basil)
+    "do you have {slot_synonyms("basil")}"
+
+rule request(kale)
+    "do you have {slot_synonyms("kale")}"
+
+rule request(avocado)
+    "do you have {slot_synonyms("avocado")}"
 
 # synonyms
 
-#function synonyms(slot, value)
-    #"{value}"
+function synonyms(slot, value)
+    "{value}"
   
     #add_if slot = "name"
 
@@ -63,7 +240,23 @@ rule request(step_three)
 
     #add_if slot = "cook_time"
 
-    #add_if slot = "total_time"
+    add_if slot = "total_time"
+    	if value = "15"
+    	    "15 minutes"
+    	if value = "20"
+            "20 minutes"
+        if value = "35"
+            "35 minutes"
+        if value = "40"
+            "40 minutes"
+        if value = "55"
+            "55 minutes"
+        if value = "60"
+            "60 minutes"
+        if value = "90"
+            "90 minutes"
+        if value = "150"
+            "150 minutes"
 
     #add_if slot = "step_one"
 	
