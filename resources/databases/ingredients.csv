@@ -1,4 +1,4 @@
-Name,ChickenStock,ChickenBroth,CookedChicken,GroundBeef,Tofu,Eggs,Tomatoes,Potatoes,Carrots,Beans,Lentils,Corn,Broccoli,EvaporatedMilk,Cornstarch,JapaneseTurnip,Salsa,HotPepperSauce,Scallions,Onions,Leek,Celery,Cumin,Ginger,Thyme,Miso,Pasta,Garlic,Mushrooms,Basil,Kale,Avocado
+name,chicken_stock,chicken_broth,cooked_chicken,ground_beef,tofu,egg,tomato,potato,carrot,bean,lentil,corn,broccoli,evaporated_milk,cornstarch,japanese_turnip,salsa,hot_pepper_sauce,scallion,onion,leek,celery,cumin,ginger,thyme,miso,pasta,garlic,mushroom,basil,kale,avocado
 Lentil Potato Soup,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE
 White Chicken Chili,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
 Easy Chilli,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE

@@ -1,0 +1,102 @@
+# user informable slots are name, total_time and Ingredient
+
+rule inform(name)
+    "I would like to have {name}( soup)?"
+    "I am looking for {name}( soup)?"
+    "I want the recipe for {name}( soup)?"
+    "I want {name}( soup)?"
+
+rule inform(total_time)
+    "I( only)? have {total_time}"
+
+# how to write the nlu rule for "I have 30 minutes", then I get all the recipes that the total_time of them are less than 30 minutes.
+
+
+
+# All slots are requestable
+
+rule request(name)
+    #"what soup(s)? do you have"
+    #"what option(s)? do you have?"
+    "is this {slot_synonyms("name")}"
+    "do you have {slot_synonyms("name")}"
+    "how to (make|do|prepare) {slot_synonyms("name")}"
+    #"which soup has {slot_synonyms("Ingredient")} in it"
+    #"I want to make( a| the)? soup with {slot_synonyms("Ingredient")}"
+
+rule request(prep_time)
+    "how long is {slot_synonyms("prep_time")}"
+
+rule request(cook_time)
+    "how long is {slot_synonyms("cook_time")}"
+
+rule request(total_time)
+    "how (long|much time) does it take to (make|cook)( the soup| it)?"
+    "how long is {slot_synonyms("total_time")}( I need)?(( to make| to cook)( the soup| it)?)?"
+
+rule request(step_one)
+    #"(Can you tell me) how to make {slot_synonyms("name")}( soup)?"
+    "what is {slot_synonyms("step_one")}"
+
+rule request(step_two)
+    "what is {slot_synonyms("step_two")}"
+    #"what (comes|is) after {slot_synonyms("step_one")}"
+
+## "what do I do next" should this question be the rule for useract: 'repeat'?
+
+rule request(step_three)
+    "what is {slot_synonyms("step_three")}"
+    #"what (comes|is) after {slot_synonyms("step_two")}"
+
+# should we set for getting 3 steps at one time? how?
+
+
+
+# synonyms
+
+#function synonyms(slot, value)
+    #"{value}"
+  
+    #add_if slot = "name"
+
+    #add_if slot = "prep_time"
+
+    #add_if slot = "cook_time"
+
+    #add_if slot = "total_time"
+
+    #add_if slot = "step_one"
+	
+    #add_if slot = "step_two"
+            
+    #add_if slot = "step_three"
+
+
+function slot_synonyms(slot)
+    "{IMPOSSIBLEREGEX()}"
+
+    if slot = "name"
+        "name"
+        "name of( a| the)? soup"
+    if slot = "prep_time"
+        "time to prepare"
+        "preparing time"
+    if slot = "cook_time"
+        "time to cook"
+        "cooking time"
+    if slot = "total_time"
+        "total time"
+    if slot = "step_one"
+        "step one"
+        "(the )?first step"
+    if slot = "step_two"
+        "step two"
+        "(the )?second step"
+    if slot = "step_three"
+        "step three"
+        "(the )?third step"
+
+# constants
+
+function domain_vocab(): "(soup)"
+function IMPOSSIBLEREGEX(): "^\b$"

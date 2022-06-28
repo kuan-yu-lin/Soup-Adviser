@@ -4,75 +4,88 @@ import sqlite3
 # reference link: https://towardsdatascience.com/turn-your-excel-workbook-into-a-sqlite-database-bc6d4fd206aa
 
 # Load CSV data into Pandas DataFrame
-recipes = pd.read_csv('recipes.csv')
-ingredients = pd.read_csv('ingredients.csv')
+soup = pd.read_csv('/home/kuanyu/Documents/GitHub/Soup_Advisor/resources/databases/recipes.csv')
+ingredient = pd.read_csv('/home/kuanyu/Documents/GitHub/Soup_Advisor/resources/databases/ingredients.csv')
 # print(df)
 
-conn = sqlite3.connect('recipes.db') # Connect to SQLite database
+conn = sqlite3.connect('soup.db') # Connect to SQLite database
 cursor = conn.cursor() # Create a cursor object
 
-# Fetch and display result 
-# Recipes
 cursor.execute(
     """
-    CREATE TABLE Recipes(
-        Name TEXT PRIMARY KEY,
-        PrepTime INTEGER,
-        CookingTime INTEGER,
-        TotalTime INTEGER,
-        Step1Prep TEXT,
-        Step2Process TEXT,
-        Step3Seasoning TEXT
+    DROP TABLE IF EXISTS soup;
+    """
+)
+
+# Fetch and display result 
+# recipe
+cursor.execute(
+    """
+    CREATE TABLE soup(
+        name TEXT PRIMARY KEY,
+        prep_time INTEGER,
+        cook_time INTEGER,
+        total_time INTEGER,
+        step_one TEXT,
+        step_two TEXT,
+        step_three TEXT
         );
-     """
+    """
+)
+
+cursor.execute(
+    """
+    DROP TABLE IF EXISTS ingredient;
+    """
 )
 
 # Fetch and display result
-# Ingredients
+# ingredient
 cursor.execute(
     """
-    CREATE TABLE Ingredients(
-        Name TEXT,
-        ChickenStock TEXT,
-        ChickenBroth TEXT,
-        CookedChicken TEXT,
-        GroundBeef TEXT,
-        Tofu TEXT,
-        Eggs TEXT,
-        Tomatoes TEXT,
-        Potatoes TEXT,
-        Carrots TEXT,
-        Beans TEXT,
-        Lentils TEXT,
-        Corn TEXT,
-        Broccoli TEXT,
-        EvaporatedMilk TEXT,
-        Cornstarch TEXT,
-        JapaneseTurnip TEXT,
-        Salsa TEXT,
-        HotPepperSauce TEXT,
-        Scallions TEXT,
-        Onions TEXT,
-        Leek TEXT,
-        Celery TEXT,
-        Cumin TEXT,
-        Ginger TEXT,
-        Thyme TEXT,
-        Miso TEXT,
-        Pasta TEXT,
-        Garlic TEXT,
-        Mushrooms TEXT,
-        Basil TEXT,
-        Kale TEXT,
-        Avocado TEXT,
+    CREATE TABLE ingredient(
+        name TEXT,
+        chicken_stock TEXT,
+        chicken_broth TEXT,
+        cooked_chicken TEXT,
+        ground_beef TEXT,
+        tofu TEXT,
+        egg TEXT,
+        tomato TEXT,
+        potato TEXT,
+        carrot TEXT,
+        bean TEXT,
+        lentil TEXT,
+        corn TEXT,
+        broccoli TEXT,
+        evaporated_milk TEXT,
+        cornstarch TEXT,
+        japanese_turnip TEXT,
+        salsa TEXT,
+        hot_pepper_sauce TEXT,
+        scallion TEXT,
+        onion TEXT,
+        leek TEXT,
+        celery TEXT,
+        cumin TEXT,
+        ginger TEXT,
+        thyme TEXT,
+        miso TEXT,
+        pasta TEXT,
+        garlic TEXT,
+        mushroom TEXT,
+        basil TEXT,
+        kale TEXT,
+        avocado TEXT,
         PRIMARY KEY(Name),
-        FOREIGN KEY(Name) REFERENCES Recipes(Name)
+        FOREIGN KEY(Name) REFERENCES soup(Name)
         );
     """
 )
 
 # Write the data to a sqlite table
-recipes.to_sql('Recipes', conn, if_exists='append', index=False) 
-ingredients.to_sql('Ingredients', conn, if_exists='append', index=False)
+soup.to_sql('soup', conn, if_exists='append', index=False) 
+ingredient.to_sql('ingredient', conn, if_exists='append', index=False)
+# The .db file is sent to /home/
 
 conn.close()

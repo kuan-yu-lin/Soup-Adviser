@@ -1,69 +1,75 @@
-# user informable slots are name, department and position
+# user informable slots are name, total_time and Ingredient
 
 rule inform(name)
-    "I want {synonyms("name", name)}"
+    "I would like to have {name}( soup)?"
+    "I am looking for {name}( soup)?"
+    "I want the recipe for {name}( soup)?"
+    "I want {name}( soup)?"
 
-rule inform(primary_uniform_color)
-    "{primary_uniform_color}"
-    "the uniform should be {primary_uniform_color}"
+rule inform(total_time)
+    "I( only)? have {total_time}"
 
-rule inform(main_superpower)
-    "{main_superpower}"
-    "I want them to be good at {main_superpower}"
+# how to write the nlu rule for "I have 30 minutes", then I get all the recipes that the total_time of them are less than 30 minutes.
 
-rule inform(loyalty)
-    "{loyalty}"
-    "they should be part of {loyalty}"
+
 
 # All slots are requestable
 
-
-rule request(primary_uniform_color)
-    "what is their {slot_synonyms("primary_uniform_color")}"
-
-rule request(main_superpower)
-    "what is their{slot_synonyms("main_superpower")}"
-
 rule request(name)
-    "What is their name"
+    #"what soup(s)? do you have"
+    #"what option(s)? do you have?"
+    "is this {slot_synonyms("name")}"
+    "do you have {slot_synonyms("name")}"
+    "how to (make|do|prepare) {slot_synonyms("name")}"
+    #"which soup has {slot_synonyms("Ingredient")} in it"
+    #"I want to make( a| the)? soup with {slot_synonyms("Ingredient")}"
 
-rule request(last_known_location)
-    "what is their {slot_synonyms("last_known_location")}"
+rule request(prep_time)
+    "how long is {slot_synonyms("prep_time")}"
 
-rule request(loyalty)
-    "what is their {slot_synonyms("loyalty")}"
+rule request(cook_time)
+    "how long is {slot_synonyms("cook_time")}"
 
-rule request(description)
-    "what is their {slot_synonyms("description")}"
+rule request(total_time)
+    "how (long|much time) does it take to (make|cook)( the soup| it)?"
+    "how long is {slot_synonyms("total_time")}( I need)?(( to make| to cook)( the soup| it)?)?"
 
-rule request(real_name)
-    "what is their {slot_synonyms("real_name")}"
+rule request(step_one)
+    #"(Can you tell me) how to make {slot_synonyms("name")}( soup)?"
+    "what is {slot_synonyms("step_one")}"
+
+rule request(step_two)
+    "what is {slot_synonyms("step_two")}"
+    #"what (comes|is) after {slot_synonyms("step_one")}"
+
+## "what do I do next" should this question be the rule for useract: 'repeat'?
+
+rule request(step_three)
+    "what is {slot_synonyms("step_three")}"
+    #"what (comes|is) after {slot_synonyms("step_two")}"
+
+# should we set for getting 3 steps at one time? how?
 
 
 
 # synonyms
 
-function synonyms(slot, value)
-    "{value}"
+#function synonyms(slot, value)
+    #"{value}"
   
     #add_if slot = "name"
 
-    #add_if slot = "last_known_location"
+    #add_if slot = "prep_time"
 
-    #add_if slot = "description"
+    #add_if slot = "cook_time"
 
-    #add_if slot = "real_name"
+    #add_if slot = "total_time"
 
-    add_if slot = "main_superpower"
-        if value = "strength"
-            "super strength"
-        if value = "martial arts"
-            "fighting"
-    
-    add_if slot = "loyalty"
-        if value = "he works best alone"
-            "alone"
-            "himself"
+    #add_if slot = "step_one"
+	
+    #add_if slot = "step_two"
+            
+    #add_if slot = "step_three"
 
 
 function slot_synonyms(slot)
@@ -71,26 +77,26 @@ function slot_synonyms(slot)
 
     if slot = "name"
         "name"
-        "{domain_vocab()}('s)? name"
-        "name of the {domain_vocab()}"
-    if slot = "primary_uniform_color"
-        "colo(u)?r(s)?"
-        "(primary|main) colo(u)?r(s)?"
-    if slot = "main_superpower"
-        "(main|primary)? skill(s)?"
-        "(main|primary)? power(s)?"
-        "(main|primary)? talent(s)?"
-    if slot = "last_known_location"
-        "location"
-        "address"
-        "last (known)? location"
-        "last (known)? address"
-    if slot = "loyalty"
-        "loyalty"
-        "team"
-    if slot = "description"
-        "description"
-    if slot = "real_name"
-        "secret identity"
-        "real name"
-        "alias(es)?"
+        "name of( a| the)? soup"
+    if slot = "prep_time"
+        "time to prepare"
+        "preparing time"
+    if slot = "cook_time"
+        "time to cook"
+        "cooking time"
+    if slot = "total_time"
+        "total time"
+    if slot = "step_one"
+        "step one"
+        "(the )?first step"
+    if slot = "step_two"
+        "step two"
+        "(the )?second step"
+    if slot = "step_three"
+        "step three"
+        "(the )?third step"
+
+# constants
+
+function domain_vocab(): "(soup)"
+function IMPOSSIBLEREGEX(): "^\b$"

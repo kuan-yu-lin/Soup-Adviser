@@ -14,3 +14,28 @@ This folder contains regex files, and templates for making regex files, which ma
   * For english files:
     * `{domain_name}{Type}{Language}.json`
     * If no language is specified, the file is in English
+
+# Not put them in soup.nlu yet:
+
+rule inform(Ingredient)
+    "I( only)? have {Ingredient}"
+    "I( only)? have {Ingredient} and {Ingredient}"
+    "I( only)? have {Ingredient}, {Ingredient} and {Ingredient}"
+## will this work? the column name are the name of Ingredients.
+## should we copy the rule and apply it to each Ingredient name?
+## any better way to write this rule?
+
+rule request(Ingredient)
+    "what do I need to (make|do|prepare) {slot_synonyms("name")}"
+    "waht are the {slot_synonyms("Ingredient")}"
+    "do I need {slot_synonyms("Ingredient")} to (make|do|prepare) {slot_synonyms("name")}"
+	
+## we want it to return all Ingredients!!!
+
+    
+    add_if slot = "Ingredient"
+        if value = "1"
+            "one"
+            
+    if slot = "Ingredient"
+        "ingredient(s)?"

@@ -7,5 +7,5 @@ The `nlg` folder contains code related to converting the semantic representation
 * `bc_nlg.py`: Defines a class which adds backchannels into the rule-based natural language output
 * `nlg.py`: Defines a class which uses defined templates to convert system actions into natural language output.
 
-# Modified for nlg folder
-There are no `affective_nlg.py` and `bc_nlg.py` in this folder yet. If they are added in the folder, comment out the two imports in the `__init__.py`.
+## Modification of nlg folder:
+There are no `affective_nlg.py` and `bc_nlg.py` in this folder yet. If they are added in the folder, comment out the two import lines in the `__init__.py`.
