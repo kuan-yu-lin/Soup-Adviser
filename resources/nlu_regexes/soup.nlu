@@ -1,128 +1,130 @@
-# user informable slots are name, total_time and Ingredient
+# user informable slots are name, total_time and ingredients
 
 rule inform(name)
-    "I would like to have {name}( soup)?"
-    "I am looking for {name}( soup)?"
-    "I want the recipe for {name}( soup)?"
-    "I want {name}( soup)?"
+    "I would like to have {synonyms("name", name)}( soup)?"
+    "I am looking for {synonyms("name", name)}( soup)?"
+    "I want the recipe for {synonyms("name", name)}( soup)?"
+    "I want {synonyms("name", name)}( soup)?"
 
 rule inform(total_time)
-    "I( only)? have {total_time} minutes"
+    "I( only)? have {synonyms("total_time", total_time)}( minutes)?"
 
-# how to write the nlu rule for "I have 30 minutes", then I get all the recipes that the total_time of them are less than 30 minutes.
-
+# how to write the nlu rule for "I have 30 minutes", then I get all the recipes that the total_time of them are less than 30 minutes. where in policy?
 # how to set a rule for making "I have 1 hour and 30 minute" into total_time = "90"?
 
 rule inform(chicken_stock)
-    "What is the soup with {slot_synonyms("chicken_stock")}"
+    "I have( a| the)? {synonyms("chicken_stock", chicken_stock)}"
 
 rule inform(chicken_broth)
-    "What is the soup with {slot_synonyms("chicken_broth")}"
+    "I have( a| the)? {synonyms("chicken_broth", chicken_broth)}"
 
 rule inform(cooked_chicken)
-    "What is the soup with {slot_synonyms("cooked_chicken")}"
+    "I have( a| the)? {synonyms("cooked_chicken", cooked_chicken)}"
 
 rule inform(ground_beef)
-    "What is the soup with {slot_synonyms("ground_beef")}"
+    "I have( a| the)? {synonyms("ground_beef", ground_beef)}"
 
 rule inform(tofu)
-    "What is the soup with {slot_synonyms("tofu")}"
+    "I have( a| the)? {synonyms("tofu", tofu)} tofu"
 
 rule inform(egg)
-    "What is the soup with {slot_synonyms("egg")}"
+    "I have( a| the)? {synonyms("egg", egg)}"
 
 rule inform(tomato)
-    "What is the soup with {slot_synonyms("tomato")}"
+    "I have( a| the)? {synonyms("tomato", tomato)}"
 
 rule inform(potato)
-    "What is the soup with {slot_synonyms("potato")}"
+    "I have( a| the)? {synonyms("potato", potato)}"
 
 rule inform(carrot)
-    "What is the soup with {slot_synonyms("carrot")}"
+    "I have( a| the)? {synonyms("carrot", carrot)}"
 
 rule inform(bean)
-    "What is the soup with {slot_synonyms("bean")}"
+    "I have( a| the)? {synonyms("bean", bean)}"
 
 rule inform(lentil)
-    "What is the soup with {slot_synonyms("lentil")}"
+    "I have( a| the)? {synonyms("lentil", lentil)}"
 
 rule inform(corn)
-    "What is the soup with {slot_synonyms("corn")}"
+    "I have( a| the)? {synonyms("corn", corn)}"
 
 rule inform(broccoli)
-    "What is the soup with {slot_synonyms("broccoli")}"
+    "I have( a| the)? {synonyms("broccoli", broccoli)}"
 
 rule inform(evaporated_milk)
-    "What is the soup with {slot_synonyms("evaporated_milk")}"
+    "I have( a| the)? {synonyms("evaporated_milk", evaporated_milk)}"
 
 rule inform(cornstarch)
-    "What is the soup with {slot_synonyms("cornstarch")}"
+    "I have( a| the)? {synonyms("cornstarch", cornstarch)}"
 
 rule inform(japanese_turnip)
-    "What is the soup with {slot_synonyms("japanese_turnip")}"
+    "I have( a| the)? {synonyms("japanese_turnip", japanese_turnip)}"
 
 rule inform(salsa)
-    "What is the soup with {slot_synonyms("salsa")}"
+    "I have( a| the)? {synonyms("salsa", salsa)}"
 
 rule inform(hot_pepper_sauce)
-    "What is the soup with {slot_synonyms("hot_pepper_sauce")}"
+    "I have( a| the)? {synonyms("hot_pepper_sauce", hot_pepper_sauce)}"
 
 rule inform(scallion)
-    "What is the soup with {slot_synonyms("scallion")}"
+    "I have( a| the)? {synonyms("scallion", scallion)}"
 
 rule inform(onion)
-    "What is the soup with {slot_synonyms("onion")}"
+    "I have( a| the)? {synonyms("onion", onion)}"
 
 rule inform(leek)
-    "What is the soup with {slot_synonyms("leek")}"
+    "I have( a| the)? {synonyms("leek", leek)}"
 
 rule inform(celery)
-    "What is the soup with {slot_synonyms("celery")}"
+    "I have( a| the)? {synonyms("celery", celery)}"
 
 rule inform(cumin)
-    "What is the soup with {slot_synonyms("cumin")}"
+    "I have( a| the)? {synonyms("cumin", cumin)}"
 
 rule inform(ginger)
-    "What is the soup with {slot_synonyms("ginger")}"
+    "I have( a| the)? {synonyms("ginger", ginger)}"
 
 rule inform(thyme)
-    "What is the soup with {slot_synonyms("thyme")}"
+    "I have( a| the)? {synonyms("thyme", thyme)}"
 
 rule inform(miso)
-    "What is the soup with {slot_synonyms("miso")}"
+    "I have( a| the)? {synonyms("miso", miso)}"
 
 rule inform(pasta)
-    "What is the soup with {slot_synonyms("pasta")}"
+    "I have( a| the)? {synonyms("pasta", pasta)}"
 
 rule inform(garlic)
-    "What is the soup with {slot_synonyms("garlic")}"
+    "I have( a| the)? {synonyms("garlic", garlic)}"
 
 rule inform(mushroom)
-    "What is the soup with {slot_synonyms("mushroom")}"
+    "I have( a| the)? {synonyms("mushroom", mushroom)}"
 
 rule inform(basil)
-    "What is the soup with {slot_synonyms("basil")}"
+    "I have( a| the)? {synonyms("basil", basil)}"
 
 rule inform(kale)
-    "What is the soup with {slot_synonyms("kale")}"
+    "I have( a| the)? {synonyms("kale", kale)}"
 
 rule inform(avocado)
-    "What is the soup with {slot_synonyms("avocado")}"
+    "I have( a| the)? {synonyms("avocado", avocado)}"
 
 
 # All slots are requestable
 
 rule request(name)
-    "do you have {slot_synonyms("name")}"
+    "what is( its)? {slot_synonyms("name")}"
 
 rule request(prep_time)
-    "how long is {slot_synonyms("prep_time")}"
+    "which soup needs {slot_synonyms("prep_time")} to prepare"
+    "what is the {slot_synonyms("prep_time")}"
 
 rule request(cook_time)
-    "how long is {slot_synonyms("cook_time")}"
+    "which soup needs {slot_synonyms("cook_time")} to (cook|make)"
+    "what is the {slot_synonyms("cook_time")}"
 
 rule request(total_time)
-    "how long is {slot_synonyms("total_time")}"
+    "which soup needs {slot_synonyms("total_time")} to prepare and cook"
+    "what is the {slot_synonyms("total_time")}"
 
 rule request(step_one)
     "what is {slot_synonyms("step_one")}"
@@ -134,129 +136,160 @@ rule request(step_three)
     "what is {slot_synonyms("step_three")}"
 
 rule request(chicken_stock)
-    "do you have {slot_synonyms("chicken_stock")}"
+    "does it needs {slot_synonyms("chicken_stock")}"
 
 rule request(chicken_broth)
-    "do you have {slot_synonyms("chicken_broth")}"
+    "does it needs {slot_synonyms("chicken_broth")}"
 
 rule request(cooked_chicken)
-    "do you have {slot_synonyms("cooked_chicken")}"
+    "does it needs {slot_synonyms("cooked_chicken")}"
 
 rule request(ground_beef)
-    "do you have {slot_synonyms("ground_beef")}"
+    "does it needs {slot_synonyms("ground_beef")}"
 
 rule request(tofu)
-    "do you have {slot_synonyms("tofu")}"
+    "does it needs {slot_synonyms("tofu")}"
 
 rule request(egg)
-    "do you have {slot_synonyms("egg")}"
+    "does it needs {slot_synonyms("egg")}"
 
 rule request(tomato)
-    "do you have {slot_synonyms("tomato")}"
+    "does it needs {slot_synonyms("tomato")}"
 
 rule request(potato)
-    "do you have {slot_synonyms("potato")}"
+    "does it needs {slot_synonyms("potato")}"
 
 rule request(carrot)
-    "do you have {slot_synonyms("carrot")}"
+    "does it needs {slot_synonyms("carrot")}"
 
 rule request(bean)
-    "do you have {slot_synonyms("bean")}"
+    "does it needs {slot_synonyms("bean")}"
 
 rule request(lentil)
-    "do you have {slot_synonyms("lentil")}"
+    "does it needs {slot_synonyms("lentil")}"
 
 rule request(corn)
-    "do you have {slot_synonyms("corn")}"
+    "does it needs {slot_synonyms("corn")}"
 
 rule request(broccoli)
-    "do you have {slot_synonyms("broccoli")}"
+    "does it needs {slot_synonyms("broccoli")}"
 
 rule request(evaporated_milk)
-    "do you have {slot_synonyms("evaporated_milk")}"
+    "does it needs {slot_synonyms("evaporated_milk")}"
 
 rule request(cornstarch)
-    "do you have {slot_synonyms("cornstarch")}"
+    "does it needs {slot_synonyms("cornstarch")}"
 
 rule request(japanese_turnip)
-    "do you have {slot_synonyms("japanese_turnip")}"
+    "does it needs {slot_synonyms("japanese_turnip")}"
 
 rule request(salsa)
-    "do you have {slot_synonyms("salsa")}"
+    "does it needs {slot_synonyms("salsa")}"
 
 rule request(hot_pepper_sauce)
-    "do you have {slot_synonyms("hot_pepper_sauce")}"
+    "does it needs {slot_synonyms("hot_pepper_sauce")}"
 
 rule request(scallion)
-    "do you have {slot_synonyms("scallion")}"
+    "does it needs {slot_synonyms("scallion")}"
 
 rule request(onion)
-    "do you have {slot_synonyms("onion")}"
+    "does it needs {slot_synonyms("onion")}"
 
 rule request(leek)
-    "do you have {slot_synonyms("leek")}"
+    "does it needs {slot_synonyms("leek")}"
 
 rule request(celery)
-    "do you have {slot_synonyms("celery")}"
+    "does it needs {slot_synonyms("celery")}"
 
 rule request(cumin)
-    "do you have {slot_synonyms("cumin")}"
+    "does it needs {slot_synonyms("cumin")}"
 
 rule request(ginger)
-    "do you have {slot_synonyms("ginger")}"
+    "does it needs {slot_synonyms("ginger")}"
 
 rule request(thyme)
-    "do you have {slot_synonyms("thyme")}"
+    "does it needs {slot_synonyms("thyme")}"
 
 rule request(miso)
-    "do you have {slot_synonyms("miso")}"
+    "does it needs {slot_synonyms("miso")}"
 
 rule request(pasta)
-    "do you have {slot_synonyms("pasta")}"
+    "does it needs {slot_synonyms("pasta")}"
 
 rule request(garlic)
-    "do you have {slot_synonyms("garlic")}"
+    "does it needs {slot_synonyms("garlic")}"
 
 rule request(mushroom)
-    "do you have {slot_synonyms("mushroom")}"
+    "does it needs {slot_synonyms("mushroom")}"
 
 rule request(basil)
-    "do you have {slot_synonyms("basil")}"
+    "does it needs {slot_synonyms("basil")}"
 
 rule request(kale)
-    "do you have {slot_synonyms("kale")}"
+    "does it needs {slot_synonyms("kale")}"
 
 rule request(avocado)
-    "do you have {slot_synonyms("avocado")}"
+    "does it needs {slot_synonyms("avocado")}"
 
 # synonyms
 
 function synonyms(slot, value)
     "{value}"
   
-    #add_if slot = "name"
+    add_if slot = "name"
+        if value = "Lentil Potato Soup"
+            "Lentil Potato"
+        #if value = "White Chicken Chili"
+        if value = "Easy Chili"
+            "Chili"
+        if value = "Chicken Tortilla"
+            "Tortilla"
+        if value = "Cream of Broccoli"
+            "Broccoli"
+        if value = "Egg Drop"
+            "Egg"
+        if value = "Miso Soup"
+            "miso"
+        if value = "Chicken Noodle"
+            "noodle"
+        #if value = "Vegetable"
+        if value = "Ground Beef"
+            "beef"
+        #if value = "Roasted Tomato"
+        if value = "Tuscan Style Chicken"
+            "Tuscan chicken"
+        if value = "Black Bean"
+            "bean"
+        if value = "Tomato Soup"
+            "tomato"
+        if value = "Lentil Soup"
+            "lentil"
+
 
     #add_if slot = "prep_time"
 
     #add_if slot = "cook_time"
 
     add_if slot = "total_time"
-    	if value = "15"
-    	    "15 minutes"
-    	if value = "20"
-            "20 minutes"
-        if value = "35"
-            "35 minutes"
-        if value = "40"
-            "40 minutes"
-        if value = "55"
-            "55 minutes"
-        if value = "60"
-            "60 minutes"
+    	if value = 15
+    	    "15"
+    	if value = 20
+            "20"
+        if value = 35
+            "35"
+        if value = 40
+            "40"
+        if value = 55
+            "55"
+        if value = 60
+            "60"
+            "1 hour"
         if value = "90"
-            "90 minutes"
-        if value = "150"
-            "150 minutes"
+            "90"
+            "1 hour and 30"
+        if value = 150
+            "150"
+            "2 hours and 30"
 
     #add_if slot = "step_one"
 	
@@ -264,13 +297,125 @@ function synonyms(slot, value)
             
     #add_if slot = "step_three"
 
+    add_if slot = "chicken_stock"
+        if value = 1
+            "chicken stock"
+    add_if slot = "chicken_broth"
+        if value = 1
+            "chicken broth"
+    add_if slot = "cooked_chicken"
+        if value = 1
+            "cooked chicken"
+    add_if slot = "ground_beef"
+        if value = 1
+            "ground beef"
+            "beef"
+    add_if slot = "tofu"
+        if value = 1
+            "tofu"
+    add_if slot = "egg"
+        if value = 1
+            "egg"
+            "eggs"
+    add_if slot = "tomato"
+        if value = 1
+            "tomato"
+            "tomatoes"
+    add_if slot = "potato"
+        if value = 1
+            "potato"
+            "potatoes"
+    add_if slot = "carrot"
+        if value = 1
+            "carrot"
+            "carrots"
+    add_if slot = "bean"
+        if value = 1
+            "bean"
+            "beans"
+    add_if slot = "lentil"
+        if value = 1
+            "lentil"
+            "lentils"
+    add_if slot = "corn"
+        if value = 1
+            "corn"
+    add_if slot = "broccoli"
+        if value = 1
+            "broccoli"
+    add_if slot = "evaporated_milk"
+        if value = 1
+            "evaporated milk"
+    add_if slot = "cornstarch"
+        if value = 1
+            "cornstarch"
+    add_if slot = "japanese_turnip"
+        if value = 1
+            "japanese turnip"
+            "radish"
+    add_if slot = "salsa"
+        if value = 1
+            "salsa"
+    add_if slot = "hot_pepper_sauce"
+        if value = 1
+            "hot pepper sauce"
+            "hot sauce"
+    add_if slot = "scallion"
+        if value = 1
+            "scallion"
+    add_if slot = "onion"
+        if value = 1
+            "onion"
+            "onions"
+    add_if slot = "leek"
+        if value = 1
+            "leek"
+            "leeks"
+    add_if slot = "celery"
+        if value = 1
+            "celery"
+    add_if slot = "cumin"
+        if value = 1
+            "cumin"
+            "cumins"
+    add_if slot = "ginger"
+        if value = 1
+            "ginger"
+    add_if slot = "thyme"
+        if value = 1
+            "thyme"
+    add_if slot = "miso"
+        if value = 1
+            "miso"
+    add_if slot = "pasta"
+        if value = 1
+            "pasta"
+    add_if slot = "garlic"
+        if value = 1
+            "garlic"
+    add_if slot = "mushroom"
+        if value = 1
+            "mushroom"
+            "mushrooms"
+    add_if slot = "basil"
+        if value = 1
+            "basil"
+    add_if slot = "kale"
+        if value = 1
+            "kale"
+            "kales"
+    add_if slot = "avocado"
+        if value = 1
+            "avocado"
+            "avocados"
+
 
 function slot_synonyms(slot)
     "{IMPOSSIBLEREGEX()}"
 
     if slot = "name"
         "name"
-        "name of( a| the)? soup"
+        "name of the {domain_vocab()}"
     if slot = "prep_time"
         "time to prepare"
         "preparing time"
@@ -279,15 +424,103 @@ function slot_synonyms(slot)
         "cooking time"
     if slot = "total_time"
         "total time"
+        "preparing and cooking time"
+        "time to prepare and cook"
     if slot = "step_one"
+        "step1"
+        "step 1"
         "step one"
         "(the )?first step"
     if slot = "step_two"
+        "step2"
+        "step 2"
         "step two"
         "(the )?second step"
     if slot = "step_three"
+        "step3"
+        "step 3"
         "step three"
         "(the )?third step"
+        "(the )?last step"
+    if slot = "chicken_stock"
+        "chicken stock"
+    if slot = "chicken_broth"
+        "chicken broth"
+    if slot = "cooked_chicken"
+        "cooked chicken"
+    if slot = "ground_beef"
+        "ground beef"
+        "beef"
+    if slot = "tofu"
+        "tofu"
+    if slot = "egg"
+        "egg"
+        "eggs"
+    if slot = "tomato"
+        "tomato"
+        "tomatoes"
+    if slot = "potato"
+        "potato"
+        "potatoes"
+    if slot = "carrot"
+        "carrot"
+        "carrots"
+    if slot = "bean"
+        "bean"
+        "beans"
+    if slot = "lentil"
+        "lentil"
+        "lentils"
+    if slot = "corn"
+        "corn"
+    if slot = "broccoli"
+        "broccoli"
+    if slot = "evaporated_milk"
+        "evaporated milk"
+    if slot = "cornstarch"
+        "cornstarch"
+    if slot = "japanese_turnip"
+        "japanese turnip"
+        "radish"
+    if slot = "salsa"
+        "salsa"
+    if slot = "hot_pepper_sauce"
+        "hot pepper sauce"
+        "hot sauce"
+    if slot = "scallion"
+        "scallion"
+    if slot = "onion"
+        "onion"
+        "onions"
+    if slot = "leek"
+        "leek"
+        "leeks"
+    if slot = "celery"
+        "celery"
+    if slot = "cumin"
+        "cumin"
+        "cumins"
+    if slot = "ginger"
+        "ginger"
+    if slot = "thyme"
+        "thyme"
+    if slot = "miso"
+        "miso"
+    if slot = "pasta"
+        "pasta"
+    if slot = "garlic"
+        "garlic"
+    if slot = "mushroom"
+        "mushroom"
+        "mushrooms"
+    if slot = "basil"
+        "basil"
+    if slot = "kale"
+        "kale"
+        "kales"
+    if slot = "avocado"
+        "avocado"
+        "avocados"
 
 # constants
 

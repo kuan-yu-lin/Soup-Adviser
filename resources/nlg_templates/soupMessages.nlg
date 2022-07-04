@@ -8,9 +8,9 @@ template closingmsg() : "Thank you, goodbye."
 
 # System Requests
 
-template request(prep_time): "How long do you want for preparation time?"
-template request(cook_time): "How long do you want for cooking time?"
-template request(total_time): "How much time do you have?"
+template request(prep_time): "How long do you want for preparation time? Please tell me in minute."
+template request(cook_time): "How long do you want for cooking time? Please tell me in minute."
+template request(total_time): "How much time do you have? Please tell me in minute."
 template request(chicken_stock): "What do you have to make the soup?"
 template request(chicken_broth): "What do you have to make the soup?"
 template request(cooked_chicken): "What do you have to make the soup?"
@@ -47,14 +47,44 @@ template request(avocado): "What do you have to make the soup?"
 # Rules for System Inform
 
 function info(slot, value, name)
-	if slot = "prep_time": "needs \"{value}\" minutes to prepare"
-	if slot = "cook_time": "needs \"{value}\" minutes to cook"
-	if slot = "total_time": "needs \"{value}\" minutes to prepare and cook"
+	if slot = "prep_time": "needs \"{(value)}\" minutes to prepare"
+	if slot = "cook_time": "needs \"{(value)}\" minutes to cook"
+	if slot = "total_time": "needs \"{(value)}\" minutes to prepare and cook"
 	if slot = "step_one": "has the first step as following: \"{value}\""
 	if slot = "step_two": "has the second step as following: \"{value}\""
 	if slot = "step_three": "has the third step as following: \"{value}\""
+	if slot = "chicken_stock": "needs \"{value}\" to make the soup"
+	if slot = "chicken_broth": "needs \"{value}\" to make the soup"
+	if slot = "cooked_chicken": "needs \"{value}\" to make the soup"
+	if slot = "ground_beef": "needs \"{value}\" to make the soup"
 	if slot = "tofu": "needs \"{value}\" to make the soup"
 	if slot = "egg": "needs \"{value}\" to make the soup"
+	if slot = "tomato": "needs \"{value}\" to make the soup"
+	if slot = "potato": "needs \"{value}\" to make the soup"
+	if slot = "carrot": "needs \"{value}\" to make the soup"
+	if slot = "bean": "needs \"{value}\" to make the soup"
+	if slot = "lentil": "needs \"{value}\" to make the soup"
+	if slot = "corn": "needs \"{value}\" to make the soup"
+	if slot = "broccoli": "needs \"{value}\" to make the soup"
+	if slot = "evaporated_milk": "needs \"{value}\" to make the soup"
+	if slot = "cornstarch": "needs \"{value}\" to make the soup"
+	if slot = "japanese_turnip": "needs \"{value}\" to make the soup"
+	if slot = "salsa": "needs \"{value}\" to make the soup"
+	if slot = "hot_pepper_sauce": "needs \"{value}\" to make the soup"
+	if slot = "scallion": "needs \"{value}\" to make the soup"
+	if slot = "onion": "needs \"{value}\" to make the soup"
+	if slot = "leek": "needs \"{value}\" to make the soup"
+	if slot = "celery": "needs \"{value}\" to make the soup"
+	if slot = "cumin": "needs \"{value}\" to make the soup"
+	if slot = "ginger": "needs \"{value}\" to make the soup"
+	if slot = "thyme": "needs \"{value}\" to make the soup"
+	if slot = "miso": "needs \"{value}\" to make the soup"
+	if slot = "pasta": "needs \"{value}\" to make the soup"
+	if slot = "garlic": "needs \"{value}\" to make the soup"
+	if slot = "mushroom": "needs \"{value}\" to make the soup"
+	if slot = "basil": "needs \"{value}\" to make the soup"
+	if slot = "kale": "needs \"{value}\" to make the soup"
+	if slot = "avocado": "needs \"{value}\" to make the soup"
 
 # how to go thru all ingredients?
 # how to reply "needs \"{value}\" and  \"{value}\" and  \"{value}\"...."
@@ -114,12 +144,99 @@ template reqmore(cook_time)
 template reqmore(total_time)
 	if total_time = "dontcare"
 		"Would you like me to look for the soup that needs certain preparation and cooking time?"
+template reqmore(chicken_stock)
+	if chicken_stock = "dontcare"
+		"Would you like me to look for the soup made with chicken_stock?"
+template reqmore(chicken_broth)
+	if chicken_broth = "dontcare"
+		"Would you like me to look for the soup made with chicken_broth?"
+template reqmore(cooked_chicken)
+	if cooked_chicken = "dontcare"
+		"Would you like me to look for the soup made with cooked_chicken?"
+template reqmore(ground_beef)
+	if ground_beef = "dontcare"
+		"Would you like me to look for the soup made with ground_beef?"
 template reqmore(tofu)
 	if tofu = "dontcare"
 		"Would you like me to look for the soup made with tofu?"
 template reqmore(egg)
 	if egg = "dontcare"
 		"Would you like me to look for the soup made with egg?"
+template reqmore(tomato)
+	if tomato = "dontcare"
+		"Would you like me to look for the soup made with tomato?"
+template reqmore(carrot)
+	if carrot = "dontcare"
+		"Would you like me to look for the soup made with carrot?"
+template reqmore(bean)
+	if bean = "dontcare"
+		"Would you like me to look for the soup made with bean?"
+template reqmore(lentil)
+	if lentil = "dontcare"
+		"Would you like me to look for the soup made with lentil?"
+template reqmore(corn)
+	if corn = "dontcare"
+		"Would you like me to look for the soup made with corn?"
+template reqmore(broccoli)
+	if broccoli = "dontcare"
+		"Would you like me to look for the soup made with broccoli?"
+template reqmore(evaporated_milk)
+	if evaporated_milk = "dontcare"
+		"Would you like me to look for the soup made with evaporated_milk?"
+template reqmore(cornstarch)
+	if cornstarch = "dontcare"
+		"Would you like me to look for the soup made with cornstarch?"
+template reqmore(japanese_turnip)
+	if japanese_turnip = "dontcare"
+		"Would you like me to look for the soup made with japanese_turnip?"
+template reqmore(salsa)
+	if salsa = "dontcare"
+		"Would you like me to look for the soup made with salsa?"
+template reqmore(hot_pepper_sauce)
+	if hot_pepper_sauce = "dontcare"
+		"Would you like me to look for the soup made with hot_pepper_sauce?"
+template reqmore(scallion)
+	if scallion = "dontcare"
+		"Would you like me to look for the soup made with scallion?"
+template reqmore(onion)
+	if onion = "dontcare"
+		"Would you like me to look for the soup made with onion?"
+template reqmore(leek)
+	if leek = "dontcare"
+		"Would you like me to look for the soup made with leek?"
+template reqmore(celery)
+	if celery = "dontcare"
+		"Would you like me to look for the soup made with celery?"
+template reqmore(cumin)
+	if cumin = "dontcare"
+		"Would you like me to look for the soup made with cumin?"
+template reqmore(ginger)
+	if ginger = "dontcare"
+		"Would you like me to look for the soup made with ginger?"
+template reqmore(thyme)
+	if thyme = "dontcare"
+		"Would you like me to look for the soup made with thyme?"
+template reqmore(miso)
+	if miso = "dontcare"
+		"Would you like me to look for the soup made with miso?"
+template reqmore(pasta)
+	if pasta = "dontcare"
+		"Would you like me to look for the soup made with pasta?"
+template reqmore(garlic)
+	if garlic = "dontcare"
+		"Would you like me to look for the soup made with garlic?"
+template reqmore(mushroom)
+	if mushroom = "dontcare"
+		"Would you like me to look for the soup made with mushroom?"
+template reqmore(basil)
+	if basil = "dontcare"
+		"Would you like me to look for the soup made with basil?"
+template reqmore(kale)
+	if kale = "dontcare"
+		"Would you like me to look for the soup made with kale?"
+template reqmore(avocado)
+	if avocado = "dontcare"
+		"Would you like me to look for the soup made with avocado?"
 
 # ---------------------------System Select----------------------------------#
 

@@ -26,145 +26,153 @@
             "Lentil Soup"
         ],
         "total_time": [            
-            "15",
-            "20",
-            "35",
-            "40",
-            "55",
-            "60",
-            "90",
-            "150"
+            15,
+            20,
+            35,
+            40,
+            55,
+            60,
+            90,
+            150
         ],
         "chicken_stock": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "chicken_broth": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "cooked_chicken": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "ground_beef": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "tofu": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "egg": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "tomato": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "potato": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "carrot": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "bean": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "lentil": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "corn": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "broccoli": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "evaporated_milk": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "cornstarch": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "japanese_turnip": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "salsa": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "hot_pepper_sauce": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "scallion": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "onion": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "leek": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "celery": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "cumin": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "ginger": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "thyme": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "miso": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "pasta": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "garlic": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "mushroom": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "basil": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "kale": [
-            "0",
-            "1"
+            0,
+            1
         ],
         "avocado": [
-            "0",
-            "1"
+            0,
+            1
         ]
     },
-    "key": "Name",
+    "key": "name",
+    "method": [
+        "none",
+        "byconstraints",
+        "byprimarykey",
+        "finished",
+        "byalternatives",
+        "restart"
+    ],
     "requestable": [
         "name",
         "prep_time",
@@ -207,9 +215,6 @@
         "avocado"
     ],
     "system_requestable": [
-        "name",
-        "prep_time",
-        "cook_time",
         "total_time",
         "chicken_stock",
         "chicken_broth",
@@ -243,5 +248,6 @@
         "basil",
         "kale",
         "avocado"
-    ]
+    ],
+    "keyword": "soup"
 }

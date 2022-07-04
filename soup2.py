@@ -28,8 +28,8 @@ d_tracker = DomainTracker(domains=[domain])
 
 ds = DialogSystem(services=[user_in, nlu, bst, policy, nlg, user_out, d_tracker])
 
-if not ds.is_error_free_messaging_pipeline():
-    ds.print_inconsistencies()
-ds.draw_system_graph(name='soup_chat', show=True)
+#if not ds.is_error_free_messaging_pipeline():
+#    ds.print_inconsistencies()
+#ds.draw_system_graph(name='s', show=True)
 
 ds.run_dialog(start_signals={'gen_user_utterance': ''})

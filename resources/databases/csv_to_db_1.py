@@ -5,6 +5,7 @@ import sqlite3
 
 # Load CSV data into Pandas DataFrame
 soup = pd.read_csv('/home/kuanyu/Documents/GitHub/soup_adviser/resources/databases/soup.csv')
+# ingredient = pd.read_csv('/home/kuanyu/Documents/GitHub/soup_adviser/resources/databases/ingredients.csv')
 # print(df)
 
 conn = sqlite3.connect('soup.db') # Connect to SQLite database
@@ -27,7 +28,7 @@ cursor.execute(
         total_time INTEGER,
         step_one TEXT,
         step_two TEXT,
-        step_three TEXT,
+        step_three TEXT
         chicken_stock TEXT,
         chicken_broth TEXT,
         cooked_chicken TEXT,
@@ -59,14 +60,64 @@ cursor.execute(
         mushroom TEXT,
         basil TEXT,
         kale TEXT,
-        avocado TEXT
+        avocado TEXT,
         );
     """
 )
 
+cursor.execute(
+    """
+    DROP TABLE IF EXISTS ingredient;
+    """
+)
+
+# Fetch and display result
+# ingredient
+# cursor.execute(
+"""
+CREATE TABLE ingredient(
+    name TEXT,
+    chicken_stock TEXT,
+    chicken_broth TEXT,
+    cooked_chicken TEXT,
+    ground_beef TEXT,
+    tofu TEXT,
+    egg TEXT,
+    tomato TEXT,
+    potato TEXT,
+    carrot TEXT,
+    bean TEXT,
+    lentil TEXT,
+    corn TEXT,
+    broccoli TEXT,
+    evaporated_milk TEXT,
+    cornstarch TEXT,
+    japanese_turnip TEXT,
+    salsa TEXT,
+    hot_pepper_sauce TEXT,
+    scallion TEXT,
+    onion TEXT,
+    leek TEXT,
+    celery TEXT,
+    cumin TEXT,
+    ginger TEXT,
+    thyme TEXT,
+    miso TEXT,
+    pasta TEXT,
+    garlic TEXT,
+    mushroom TEXT,
+    basil TEXT,
+    kale TEXT,
+    avocado TEXT,
+    PRIMARY KEY(name),
+    FOREIGN KEY(name) REFERENCES soup(name)
+    );
+"""
+# )
+
 # Write the data to a sqlite table
 soup.to_sql('soup', conn, if_exists='append', index=False) 
-
+# ingredient.to_sql('ingredient', conn, if_exists='append', index=False)
 # The .db file is sent to /home/
 
 conn.close()
