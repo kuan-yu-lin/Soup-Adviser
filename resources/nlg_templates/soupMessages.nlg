@@ -1,4 +1,4 @@
-# ---------------NEW RULES - SOUP ADVISER MESSAGES-------------------------
+# ---------------NEW RULES - SOUP ADVISER MESSAGES-------------------------#
 
 template welcomemsg(): "Hi! I'm Soup Adviser. How may I help you?"
 template welcomemsg(help): "Sorry, I don't understand you. Could you rephrase that?"
@@ -8,48 +8,127 @@ template closingmsg() : "Thank you, goodbye."
 
 # System Requests
 
-#template request(ingredient): "What ingredients do you have?"
+template request(prep_time): "How long do you want for preparation time?"
+template request(cook_time): "How long do you want for cooking time?"
 template request(total_time): "How much time do you have?"
-#template request(type): "Are you looking for vegetarian, vegan or non vegetarian recipes?"
+template request(chicken_stock): "What do you have to make the soup?"
+template request(chicken_broth): "What do you have to make the soup?"
+template request(cooked_chicken): "What do you have to make the soup?"
+template request(ground_beef): "What do you have to make the soup?"
+template request(tofu): "What do you have to make the soup?"
+template request(egg): "What do you have to make the soup?"
+template request(tomato): "What do you have to make the soup?"
+template request(potato): "What do you have to make the soup?"
+template request(carrot): "What do you have to make the soup?"
+template request(bean): "What do you have to make the soup?"
+template request(lentil): "What do you have to make the soup?"
+template request(corn): "What do you have to make the soup?"
+template request(broccoli): "What do you have to make the soup?"
+template request(evaporated_milk): "What do you have to make the soup?"
+template request(cornstarch): "What do you have to make the soup?"
+template request(japanese_turnip): "What do you have to make the soup?"
+template request(salsa): "What do you have to make the soup?"
+template request(hot_pepper_sauce): "What do you have to make the soup?"
+template request(scallion): "What do you have to make the soup?"
+template request(onion): "What do you have to make the soup?"
+template request(leek): "What do you have to make the soup?"
+template request(celery): "What do you have to make the soup?"
+template request(cumin): "What do you have to make the soup?"
+template request(ginger): "What do you have to make the soup?"
+template request(thyme): "What do you have to make the soup?"
+template request(miso): "What do you have to make the soup?"
+template request(pasta): "What do you have to make the soup?"
+template request(garlic): "What do you have to make the soup?"
+template request(mushroom): "What do you have to make the soup?"
+template request(basil): "What do you have to make the soup?"
+template request(kale): "What do you have to make the soup?"
+template request(avocado): "What do you have to make the soup?"
 
 # Rules for System Inform
 
 function info(slot, value, name)
-	if slot = "loyality": "works with the following organisation: \"{value}\""
-	if slot = "description": "has the following description: \"{value}\""
-	if slot = "main_superpower": "uses \"{value}\""
-	if slot = "primary_uniform_color": "wears a uniform with \"{value}\" as main color"
+	if slot = "prep_time": "needs \"{value}\" minutes to prepare"
+	if slot = "cook_time": "needs \"{value}\" minutes to cook"
+	if slot = "total_time": "needs \"{value}\" minutes to prepare and cook"
+	if slot = "step_one": "has the first step as following: \"{value}\""
+	if slot = "step_two": "has the second step as following: \"{value}\""
+	if slot = "step_three": "has the third step as following: \"{value}\""
+	if slot = "tofu": "needs \"{value}\" to make the soup"
+	if slot = "egg": "needs \"{value}\" to make the soup"
+
+# how to go thru all ingredients?
+# how to reply "needs \"{value}\" and  \"{value}\" and  \"{value}\"...."
 
 # -------------------------Only Name Slot-----------------------------------#
 
 template inform_byname(name)
-	"I found a recipe for {name}."
+	"I found a recipe for {name}. What do you want to know about them?"
 
 	special_case name = "none"
 		"I'm sorry, I could not find this recipe."
 
 
-#template inform_alternatives(ingredient)
-#	"There is another soup with this {ingredient}. Do you want the recipe for that?"
+template inform_alternatives(name)
+	"There is another soup with this {name}. Do you want the recipe for that?"
 
 	special_case name = "none"
-		"I'm sorry, I could not find this recipe."	
+		"I'm sorry, I could not find another recipe."	
 
 
 #------------------------ Name Slot + Slots----------------------------------#
 
+template inform_byname(name, *slots)
+	"The soup called {name} {for_entry(slots, "info", ", they ", " and they ", name)}."
+	
+	special_case name = "none"
+		"There is no such soup which {for_entry(slots, "info", ", ", " and ", name)}."
+
+template inform_alternatives(name, *slots)
+	"The soup called {name} also {for_entry(slots, "info", ", they ", " and they ", name)}."
+	
+	special_case name = "none"
+		"There is no other soup which also {for_entry(slots, "info", ", ", " and ", name)}."
 
 
 # ----------------------------System Confirm----------------------------------#
 
 template confirm()
-	"Please tell me the time in minutes"
+	"Please tell me more about the soup you are looking for."
+template confirm(name, *slots)
+	if name = "none"
+		"Let me confirm, you are looking for the soup which {for_entry(slots, "info", ", ", " and ", name)}, right?"
+template confirm(*slots)
+	"Let me confirm, you are looking for the soup which {for_entry(slots, "info", ", ", " and ", "none")}, right?"
 
 # ---------------------------System RequestMore------------------------------#
 
 template reqmore()
 	"Can I help you with anything else?"
 
+template reqmore(prep_time)
+	if prep_time = "dontcare"
+		"Would you like me to look for the soup that needs certain preparation time?"
+template reqmore(cook_time)
+	if cook_time = "dontcare"
+		"Would you like me to look for the soup that needs certain cooking time?"
+template reqmore(total_time)
+	if total_time = "dontcare"
+		"Would you like me to look for the soup that needs certain preparation and cooking time?"
+template reqmore(tofu)
+	if tofu = "dontcare"
+		"Would you like me to look for the soup made with tofu?"
+template reqmore(egg)
+	if egg = "dontcare"
+		"Would you like me to look for the soup made with egg?"
 
 # ---------------------------System Select----------------------------------#
 
+template select(*slot)
+	"Sorry, would you like to have the soup {for_entry(slot, "info_or_dontcare_list", "", "")}?"
+
+function info_or_dontcare_list(slot, value_list)
+	"{for(value_list, "info_or_dontcare", ", ", " or ", slot)}"
+
+function info_or_dontcare(value, slot)
+	"which {info(slot, value, "none")}"
+	special_case value = "dontcare": "you don't care"
