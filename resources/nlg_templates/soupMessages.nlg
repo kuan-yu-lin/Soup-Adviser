@@ -8,7 +8,7 @@ template closingmsg() : "Thank you, goodbye."
 
 # System Requests
 
-template request(total_time): "How much time do you have? Please tell me in minute."
+template request(total_time): "How much time do you have? Please tell me in minutes."
 template request(chicken_stock): "What do you have to make the soup?"
 template request(chicken_broth): "What do you have to make the soup?"
 template request(cooked_chicken): "What do you have to make the soup?"
@@ -95,7 +95,7 @@ function info(slot, value, name)
 # -------------------------Only Name Slot-----------------------------------#
 
 template inform_byname(name)
-	"I found a recipe for {name}. What do you want to know about them?"
+	"I found a recipe for {name}. What do you want to know about it?"
 
 	special_case name = "none"
 		"I'm sorry, I could not find this recipe."
