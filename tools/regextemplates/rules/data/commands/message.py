@@ -66,5 +66,9 @@ class Message(Command):
                 component.component_type == MessageComponentType.PYTHON_CODE:
                 code = component.value + '$'  # CodeParser expects end of statement
                 expression = CODE_PARSER.parse(code)[0]
-                output += expression.evaluate(parameters)
+                if expression.evaluate(parameters) == None: ## the value of each ingredients is 0 as None, which cause error
+                    pass  ## add this line to skip it 
+                    # print('expre....: ', expression.evaluate(parameters))
+                else:
+                    output += str(expression.evaluate(parameters))
         return output

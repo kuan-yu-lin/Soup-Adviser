@@ -127,8 +127,9 @@ class Rule(Command):
     def _flatten_value_list(self, value_list: List[object]):
         if not value_list:
             return None
-        if len(value_list) == 1:
-            return value_list[0]
+        ## make value_list string and be in a list 
+        if len([str(value_list)]) == 1:
+            return [str(value_list)][0]
         return value_list
 
     def _get_applicable_special_case(self, parameters: Memory) -> SpecialCaseException:

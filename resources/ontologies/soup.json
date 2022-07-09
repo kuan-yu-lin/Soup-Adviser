@@ -2,7 +2,6 @@
     "discourseAct": [
         "hey",
         "hello",
-        "I'm hungry",
         "none",
         "silence",
         "thanks"
@@ -175,9 +174,8 @@
     ],
     "requestable": [
         "name",
-        "prep_time",
-        "cook_time",
         "total_time",
+        "ingredient",
         "step_one",
         "step_two",
         "step_three",

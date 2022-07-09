@@ -151,29 +151,9 @@ class JSONLookupDomain(Domain):
         else:
             select_clause = "*"
         query = 'SELECT {} FROM {} WHERE {}="{}";'.format(
-            select_clause, self.get_domain_name(), self.get_primary_key(), entity_id)
+            select_clause, self.get_domain_name(), self.get_primary_key(), entity_id)        
+        print("query_db: ", self.query_db(query))
         return self.query_db(query)
-
-    def find_info_about_ingredient(self, entity_id):
-        """ Find out all the column of ingredients with value = 1. Returns the values (stored in the data backend) of the specified slots for the
-            specified entity. e.g. {'onion': 1}
-
-        Args:
-            entity_id (str): primary key value of the entity
-        
-        Return:
-            ingre_lst (lst): list of dictionary, which includes all ingredient with value = 1
-        
-        -- Kuan
-        """
-        column_names = ["chicken_stock", "chicken_broth", "cooked_chicken", "ground_beef", "tofu", "egg", "tomato", "potato", "carrot", "bean", "lentil", "corn", "broccoli", "evaporated_milk", "cornstarch", "japanese_turnip", "salsa", "hot_pepper_sauce", "scallion", "onion", "leek", "celery", "cumin", "ginger", "thyme", "miso", "pasta", "garlic", "mushroom", "basil", "kale", "avocado"]
-        ingre_lst = []
-        for c_names in column_names:
-            req_slots_c_names = {c_names: 1.0}
-            ingre = self.find_info_about_entity(entity_id=entity_id, requested_slots=req_slots_c_names)
-            if list(ingre[0].values())[0] == 1:
-                ingre_lst += ingre
-        return ingre_lst
 
     def query_db(self, query_str):
         """ Function for querying the sqlite3 db
@@ -192,6 +172,7 @@ class JSONLookupDomain(Domain):
         cursor = self.db.cursor()
         cursor.execute(query_str)
         res = cursor.fetchall()
+        print("res: ", res)
         return res
 
     def get_display_name(self):
@@ -236,4 +217,3 @@ class JSONLookupDomain(Domain):
     def get_keyword(self):
         if "keyword" in self.ontology_json:
             return self.ontology_json['keyword']
-

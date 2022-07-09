@@ -99,7 +99,7 @@ class TemplateFile:
         slots = self._create_memory_from_sys_act(sys_act)
         for template in self._templates[sys_act.type.value]:
             if template.is_applicable(slots):
-                return template.apply(slots)
+                return template.apply(slots) # the final sentence we see that sys produce
         raise BaseException('No template was found for the given system act.')
 
     def _create_memory_from_sys_act(self, sys_act: SysAct) -> Memory:

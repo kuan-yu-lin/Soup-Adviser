@@ -17,8 +17,230 @@ rule inform(Total Time)
     regex "i (only)? have {Total Time}"
 "(soup) | (recipes) under {Total Time} minutes"
 
+rule inform(chicken_stock)
+    "I have( a| the)? {synonyms("chicken_stock", chicken_stock)}"
 
+rule inform(chicken_broth)
+    "I have( a| the)? {synonyms("chicken_broth", chicken_broth)}"
 
+rule inform(cooked_chicken)
+    "I have( a| the)? {synonyms("cooked_chicken", cooked_chicken)}"
+
+rule inform(ground_beef)
+    "I have( a| the)? {synonyms("ground_beef", ground_beef)}"
+
+rule inform(tofu)
+    "I have( a| the)? {synonyms("tofu", tofu)}"
+
+rule inform(egg)
+    "I have( a| the)? {synonyms("egg", egg)}"
+
+rule inform(tomato)
+    "I have( a| the)? {synonyms("tomato", tomato)}"
+
+rule inform(potato)
+    "I have( a| the)? {synonyms("potato", potato)}"
+
+rule inform(carrot)
+    "I have( a| the)? {synonyms("carrot", carrot)}"
+
+rule inform(bean)
+    "I have( a| the)? {synonyms("bean", bean)}"
+
+rule inform(lentil)
+    "I have( a| the)? {synonyms("lentil", lentil)}"
+
+rule inform(corn)
+    "I have( a| the)? {synonyms("corn", corn)}"
+
+rule inform(broccoli)
+    "I have( a| the)? {synonyms("broccoli", broccoli)}"
+
+rule inform(evaporated_milk)
+    "I have( a| the)? {synonyms("evaporated_milk", evaporated_milk)}"
+
+rule inform(cornstarch)
+    "I have( a| the)? {synonyms("cornstarch", cornstarch)}"
+
+rule inform(japanese_turnip)
+    "I have( a| the)? {synonyms("japanese_turnip", japanese_turnip)}"
+
+rule inform(salsa)
+    "I have( a| the)? {synonyms("salsa", salsa)}"
+
+rule inform(hot_pepper_sauce)
+    "I have( a| the)? {synonyms("hot_pepper_sauce", hot_pepper_sauce)}"
+
+rule inform(scallion)
+    "I have( a| the)? {synonyms("scallion", scallion)}"
+
+rule inform(onion)
+    "I have( a| the)? {synonyms("onion", onion)}"
+
+rule inform(leek)
+    "I have( a| the)? {synonyms("leek", leek)}"
+
+rule inform(celery)
+    "I have( a| the)? {synonyms("celery", celery)}"
+
+rule inform(cumin)
+    "I have( a| the)? {synonyms("cumin", cumin)}"
+
+rule inform(ginger)
+    "I have( a| the)? {synonyms("ginger", ginger)}"
+
+rule inform(thyme)
+    "I have( a| the)? {synonyms("thyme", thyme)}"
+
+rule inform(miso)
+    "I have( a| the)? {synonyms("miso", miso)}"
+
+rule inform(pasta)
+    "I have( a| the)? {synonyms("pasta", pasta)}"
+
+rule inform(garlic)
+    "I have( a| the)? {synonyms("garlic", garlic)}"
+
+rule inform(mushroom)
+    "I have( a| the)? {synonyms("mushroom", mushroom)}"
+
+rule inform(basil)
+    "I have( a| the)? {synonyms("basil", basil)}"
+
+rule inform(kale)
+    "I have( a| the)? {synonyms("kale", kale)}"
+
+rule inform(avocado)
+    "I have( a| the)? {synonyms("avocado", avocado)}"
+
+        "chicken_stock": [
+            0,
+            1
+        ],
+        "chicken_broth": [
+            0,
+            1
+        ],
+        "cooked_chicken": [
+            0,
+            1
+        ],
+        "ground_beef": [
+            0,
+            1
+        ],
+        "tofu": [
+            0,
+            1
+        ],
+        "egg": [
+            0,
+            1
+        ],
+        "tomato": [
+            0,
+            1
+        ],
+        "potato": [
+            0,
+            1
+        ],
+        "carrot": [
+            0,
+            1
+        ],
+        "bean": [
+            0,
+            1
+        ],
+        "lentil": [
+            0,
+            1
+        ],
+        "corn": [
+            0,
+            1
+        ],
+        "broccoli": [
+            0,
+            1
+        ],
+        "evaporated_milk": [
+            0,
+            1
+        ],
+        "cornstarch": [
+            0,
+            1
+        ],
+        "japanese_turnip": [
+            0,
+            1
+        ],
+        "salsa": [
+            0,
+            1
+        ],
+        "hot_pepper_sauce": [
+            0,
+            1
+        ],
+        "scallion": [
+            0,
+            1
+        ],
+        "onion": [
+            0,
+            1
+        ],
+        "leek": [
+            0,
+            1
+        ],
+        "celery": [
+            0,
+            1
+        ],
+        "cumin": [
+            0,
+            1
+        ],
+        "ginger": [
+            0,
+            1
+        ],
+        "thyme": [
+            0,
+            1
+        ],
+        "miso": [
+            0,
+            1
+        ],
+        "pasta": [
+            0,
+            1
+        ],
+        "garlic": [
+            0,
+            1
+        ],
+        "mushroom": [
+            0,
+            1
+        ],
+        "basil": [
+            0,
+            1
+        ],
+        "kale": [
+            0,
+            1
+        ],
+        "avocado": [
+            0,
+            1
+        ]
 
 """
 

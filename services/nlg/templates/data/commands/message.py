@@ -59,12 +59,22 @@ class Message(Command):
 
     def apply(self, parameters: Memory) -> str:
         output = ''
+        n = 0
         for component in self.components:
+            # print('comp: ', component)
             if component.component_type == MessageComponentType.STRING:
                 output += component.value
             elif component.component_type == MessageComponentType.ADVISER_CODE or \
                 component.component_type == MessageComponentType.PYTHON_CODE:
                 code = component.value + '$'  # CodeParser expects end of statement
+                # print('code: ', code) #--> value$
                 expression = CODE_PARSER.parse(code)[0]
-                output += expression.evaluate(parameters)
+                # print('expression: ', expression) #--> value
+                if type(expression.evaluate(parameters)) == list: # when value is a list with multiple name of ingredients
+                    item = expression.evaluate(parameters)[n]
+                    output += item
+                    n += 1
+                else:
+                    output += expression.evaluate(parameters)
+                # print('output: ', output)
         return output

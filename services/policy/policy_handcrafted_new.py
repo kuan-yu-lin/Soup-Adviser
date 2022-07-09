@@ -18,7 +18,12 @@
 ###############################################################################
 
 from collections import defaultdict
+import pstats
 from typing import List, Dict
+
+from mysqlx import DatabaseError
+from torch import true_divide
+import jsonlookupdomain
 
 from services.service import PublishSubscribe
 from services.service import Service
@@ -198,13 +203,8 @@ class HandcraftedPolicy(Service):
         # that info for the slots they have specified
         if name and beliefstate['requests']:
             requested_slots = beliefstate['requests']
-            if list(requested_slots.keys())[0] == 'ingredient':
-                # print('domain.entity: ', self.domain.find_info_about_ingre(name, requested_slots))
-                return self.domain.find_info_about_ingredient(name)
-            else:
-                # print('requested_slots: ', requested_slots)
-                # print('domain.entity: ', self.domain.find_info_about_entity(name, requested_slots)) --> [{'onion': 0}]
-                return self.domain.find_info_about_entity(name, requested_slots)
+            print(self.domain.find_info_about_entity(name, requested_slots))
+            return self.domain.find_info_about_entity(name, requested_slots)
         # otherwise, issue a query to find all entities which satisfy the constraints the user
         # has given so far
         else:
@@ -466,28 +466,14 @@ class HandcraftedPolicy(Service):
 
         """
         sys_act.type = SysActionType.InformByName
-
         if q_results:
-            keys = []
-            if list(beliefstate['requests'].keys())[0] == 'ingredient':
-                for result in q_results:
-                    sys_act.add_value(f"ingredient_{len(q_results)}", list(result.keys())[0])
-                    keys = list(result.keys())[:4]  # should represent all user specified constraints              
-            else:
-                result = q_results[0]  # currently return just the first result
-                keys = list(result.keys())[:4]  # should represent all user specified constraints
+            result = q_results[0]  # currently return just the first result
+            keys = list(result.keys())[:4]  # should represent all user specified constraints
 
-                # add slots + values (where available) to the sys_act
-                for k in keys:
-                    if result[k] == 0:
-                        res = 'no ' + k
-                    elif result[k] == 1:
-                        res = str(result[k]) + ' ' + k
-                    elif result[k]:
-                        res = str(result[k])
-                    else:
-                        'not available'
-                    sys_act.add_value(k, res)
+            # add slots + values (where available) to the sys_act
+            for k in keys:
+                res = result[k] if result[k] else 'not available'
+                sys_act.add_value(k, res)
             # Name might not be a constraint in request queries, so add it
             if self.domain_key not in keys:
                 name = self._get_name(beliefstate)
@@ -528,7 +514,8 @@ class HandcraftedPolicy(Service):
             result = self.current_suggestions[self.s_index]
             # Inform by alternatives according to our current templates is
             # just a normal inform apparently --LV
-            sys_act.add_value(self.domain_key, result[self.domain_key])
+            sys_act.add_value(self.domain_key, str(result[self.domain_key]))
+            ## make result into str()
         else:
             sys_act.type = SysActionType.InformByAlternatives
             # default to last suggestion in the list
@@ -571,3 +558,17 @@ class HandcraftedPolicy(Service):
             # Using constraints here rather than results to deal with empty
             # results sets (eg. user requests something impossible) --LV
             sys_act.add_value(c, constraints[c])
+
+'''
+    def inform_ingr_lst(self, soup_name):
+        sys_act=SysAct(act_type=SysActionType.InformByName)
+        sys_act.add_value("name", soup_name)
+        
+        ingredient_row = JSONLookupDomain._sqllite_dict_factory()
+        get database (ontology) jsonlookupdomain.py
+        column_names = ["chicken_stock", "chicken_broth", "cooked_chicken", "ground_beef", "tofu", "egg", "tomato", "potato", "carrot", "bean", "lentil", "corn", "broccoli", "evaporated_milk", "cornstarch", "japanese_turnip", "salsa", "hot_pepper_sauce", "scallion", "onion", "leek", "celery", "cumin", "ginger", "thyme", "miso", "pasta", "garlic", "mushroom", "basil", "kale", "avocado"]
+        for i, ingredient in enumerate(column_names):
+            if tomato is true 
+            sys_act.add_value(f"ingredient_{i}", ingredient)
+'''
+

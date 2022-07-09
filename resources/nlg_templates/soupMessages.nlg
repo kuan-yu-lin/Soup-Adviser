@@ -8,8 +8,6 @@ template closingmsg() : "Thank you, goodbye."
 
 # System Requests
 
-template request(prep_time): "How long do you want for preparation time? Please tell me in minute."
-template request(cook_time): "How long do you want for cooking time? Please tell me in minute."
 template request(total_time): "How much time do you have? Please tell me in minute."
 template request(chicken_stock): "What do you have to make the soup?"
 template request(chicken_broth): "What do you have to make the soup?"
@@ -47,12 +45,20 @@ template request(avocado): "What do you have to make the soup?"
 # Rules for System Inform
 
 function info(slot, value, name)
-	if slot = "prep_time": "needs \"{(value)}\" minutes to prepare"
-	if slot = "cook_time": "needs \"{(value)}\" minutes to cook"
-	if slot = "total_time": "needs \"{(value)}\" minutes to prepare and cook"
+	if slot = "total_time": "needs \"{value}\" minutes to prepare and cook"
 	if slot = "step_one": "has the first step as following: \"{value}\""
 	if slot = "step_two": "has the second step as following: \"{value}\""
 	if slot = "step_three": "has the third step as following: \"{value}\""
+	if slot = "ingredient_1": "needs \"{value}\" to make the soup"
+	if slot = "ingredient_2": "needs \"{value}\" and \"{value}\" to make the soup"
+	if slot = "ingredient_3": "needs \"{value}\", \"{value}\" and \"{value}\" to make the soup"
+	if slot = "ingredient_4": "needs \"{value}\", \"{value}\" \"{value}\" and \"{value}\" to make the soup"
+	if slot = "ingredient_5": "needs \"{value}\", \"{value}\", \"{value}\" \"{value}\" and \"{value}\" to make the soup"
+	if slot = "ingredient_6": "needs \"{value}\", \"{value}\", \"{value}\", \"{value}\" \"{value}\" and \"{value}\" to make the soup"
+	if slot = "ingredient_7": "needs \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\" \"{value}\" and \"{value}\" to make the soup"
+	if slot = "ingredient_8": "needs \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\" \"{value}\" and \"{value}\" to make the soup"
+	if slot = "ingredient_9": "needs \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\" \"{value}\" and \"{value}\" to make the soup"
+	if slot = "ingredient_10": "needs \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\", \"{value}\" \"{value}\" and \"{value}\" to make the soup"
 	if slot = "chicken_stock": "needs \"{value}\" to make the soup"
 	if slot = "chicken_broth": "needs \"{value}\" to make the soup"
 	if slot = "cooked_chicken": "needs \"{value}\" to make the soup"
@@ -85,9 +91,6 @@ function info(slot, value, name)
 	if slot = "basil": "needs \"{value}\" to make the soup"
 	if slot = "kale": "needs \"{value}\" to make the soup"
 	if slot = "avocado": "needs \"{value}\" to make the soup"
-
-# how to go thru all ingredients?
-# how to reply "needs \"{value}\" and  \"{value}\" and  \"{value}\"...."
 
 # -------------------------Only Name Slot-----------------------------------#
 
@@ -135,12 +138,6 @@ template confirm(*slots)
 template reqmore()
 	"Can I help you with anything else?"
 
-template reqmore(prep_time)
-	if prep_time = "dontcare"
-		"Would you like me to look for the soup that needs certain preparation time?"
-template reqmore(cook_time)
-	if cook_time = "dontcare"
-		"Would you like me to look for the soup that needs certain cooking time?"
 template reqmore(total_time)
 	if total_time = "dontcare"
 		"Would you like me to look for the soup that needs certain preparation and cooking time?"
