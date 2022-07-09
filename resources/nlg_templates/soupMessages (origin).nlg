@@ -14,11 +14,6 @@ template request(type): "Are you looking for vegetarian, vegan or non vegetarian
 
 # Rules for System Inform
 
-function info(slot, value, name)
-	if slot = "loyality": "works with the following organisation: \"{value}\""
-	if slot = "description": "has the following description: \"{value}\""
-	if slot = "main_superpower": "uses \"{value}\""
-	if slot = "primary_uniform_color": "wears a uniform with \"{value}\" as main color"
 
 # -------------------------Only Name Slot-----------------------------------#
 
