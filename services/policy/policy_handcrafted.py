@@ -443,7 +443,7 @@ class HandcraftedPolicy(Service):
 
         --LV
         """
-
+        # print('beliefstate: ', beliefstate)
         if beliefstate["requests"] or self.domain.get_primary_key() in beliefstate['informs']:
             self._convert_inform_by_primkey(q_results, sys_act, beliefstate)
 
@@ -476,7 +476,8 @@ class HandcraftedPolicy(Service):
             else:
                 result = q_results[0]  # currently return just the first result
                 keys = list(result.keys())[:4]  # should represent all user specified constraints
-
+                # print('result: ', result)
+                # print('keys: ', keys)
                 # add slots + values (where available) to the sys_act
                 for k in keys:
                     if result[k] == 0:

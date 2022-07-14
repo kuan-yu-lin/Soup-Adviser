@@ -312,7 +312,9 @@ class HandcraftedNLU(Service):
         Returns:
 
         """
-
+        # Include the value of total_time not in the ontology list -- Kuan
+        user_utterance = self._revise_time(user_utterance)
+        # print('uu: ', user_utterance)
         # Iteration over all user informable slots and their slots
         for slot in self.USER_INFORMABLE:
             for value in self.inform_regex[slot]:
@@ -472,3 +474,55 @@ class HandcraftedNLU(Service):
                                                + 'GermanInformRules.json'))
         else:
             print('No language')
+
+    def _revise_time(self, user_utterance: str):
+        """
+        Check if the user_utterance is telling the time. Turn the value of time in user utterance
+        into one of the value in the total time in ontology.
+
+        Args:
+            user_utterance {str} --  text input fIrom user
+
+        Returns:
+            user_utterance {str}
+
+        --- Kuan
+        """
+        total_min = 0
+        if 'hour' in user_utterance:
+            if 'minute' in user_utterance:
+                time_lst = re.findall(r'\d+', user_utterance)
+                h = time_lst[0]
+                total_min += int(h) * 60
+                m = time_lst[1]
+                total_min += int(m)
+            else:    
+                h = re.findall(r'\d+', user_utterance)[0]
+                total_min += int(h) * 60
+        elif 'minute' in user_utterance:
+            m = re.findall(r'\d+', user_utterance)[0]
+            total_min += int(m)
+        else:
+            return user_utterance
+   
+        time_lst = [15, 20, 35, 40, 55, 60, 90, 150]
+        if total_min not in time_lst:
+            if 20 > total_min >= 15:
+                user_utterance = 'I have 15 minutes'
+            elif 35 > total_min >= 20:
+                user_utterance = 'I have 20 minutes'
+            elif 40 > total_min >= 35:
+                user_utterance = 'I have 35 minutes'
+            elif 55 > total_min >= 40:
+                user_utterance = 'I have 40 minutes'
+            elif 60 > total_min >= 55:
+                user_utterance = 'I have 55 minutes'
+            elif 90 > total_min >= 60:
+                user_utterance = 'I have 60 minutes'
+            elif 150 > total_min >= 90:
+                user_utterance = 'I have 90 minutes'
+            elif total_min >= 150:
+                user_utterance = 'I have 150 minutes'
+        
+        return user_utterance
+        
