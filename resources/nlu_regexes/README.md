@@ -15,27 +15,13 @@ This folder contains regex files, and templates for making regex files, which ma
     * `{domain_name}{Type}{Language}.json`
     * If no language is specified, the file is in English
 
-# Not put them in soup.nlu yet:
-
-rule inform(Ingredient)
-    "I( only)? have {Ingredient}"
-    "I( only)? have {Ingredient} and {Ingredient}"
-    "I( only)? have {Ingredient}, {Ingredient} and {Ingredient}"
-## will this work? the column name are the name of Ingredients.
-## should we copy the rule and apply it to each Ingredient name?
-## any better way to write this rule?
-
-rule request(Ingredient)
-    "what do I need to (make|do|prepare) {slot_synonyms("name")}"
-    "waht are the {slot_synonyms("Ingredient")}"
-    "do I need {slot_synonyms("Ingredient")} to (make|do|prepare) {slot_synonyms("name")}"
+To build a new request rule with the requestable, which is not any column name in the database: 
+    rule request(ingredient)
+        "what do I need"
 	
-## we want it to return all Ingredients!!!
+1. Add the requestable item, (e.g. ingredient) to ontology, `{domain name}.json`.
 
-    
-    add_if slot = "Ingredient"
-        if value = "1"
-            "one"
-            
-    if slot = "Ingredient"
-        "ingredient(s)?"
+2. Add the rule to `{domain name}.nlu`. This is what user need to say to activate this request.
+
+3. Execute the script `gen_regexes.py` in the folder `tools/regextemplates` like this:
+`python3 tools/regextemplates/gen_regexes.py {domain_name} {domain_name}`.

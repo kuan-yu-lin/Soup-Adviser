@@ -18,6 +18,7 @@
 ###############################################################################
 
 from collections import defaultdict
+import re
 from typing import List, Dict
 
 from services.service import PublishSubscribe
@@ -198,11 +199,10 @@ class HandcraftedPolicy(Service):
         # that info for the slots they have specified
         if name and beliefstate['requests']:
             requested_slots = beliefstate['requests']
+            # if it is a request for ingredient, use "find_info_about_ingredient" to get all the slots with value 1 --Kuan
             if list(requested_slots.keys())[0] == 'ingredient':
-                # print('domain.entity: ', self.domain.find_info_about_ingre(name, requested_slots))
                 return self.domain.find_info_about_ingredient(name)
             else:
-                # print('requested_slots: ', requested_slots)
                 # print('domain.entity: ', self.domain.find_info_about_entity(name, requested_slots)) --> [{'onion': 0}]
                 return self.domain.find_info_about_entity(name, requested_slots)
         # otherwise, issue a query to find all entities which satisfy the constraints the user
@@ -316,7 +316,7 @@ class HandcraftedPolicy(Service):
             sys_act.type = SysActionType.InformByName
             sys_act.add_value(self.domain.get_primary_key(), self._get_name(beliefstate))
             return sys_act, {'last_act': sys_act}
-
+        
         # Otherwise we need to query the db to determine next action
         results = self._query_db(beliefstate)
         sys_act = self._raw_action(results, beliefstate)
@@ -443,7 +443,6 @@ class HandcraftedPolicy(Service):
 
         --LV
         """
-        # print('beliefstate: ', beliefstate)
         if beliefstate["requests"] or self.domain.get_primary_key() in beliefstate['informs']:
             self._convert_inform_by_primkey(q_results, sys_act, beliefstate)
 

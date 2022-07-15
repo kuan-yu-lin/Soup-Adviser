@@ -104,9 +104,11 @@ class BeliefState:
         """
 
         # TODO: revist when we include probabilites, sets should become dictionaries
+        # add "user_act_history": OrderedDict() --> to record the history of user_acts -- Kuan
         belief_state = {"user_acts": set(),
                         "informs": {},
                         "requests": {},
+                        "user_act_history": [],
                         "num_matches": 0,
                         "discriminable": True}
 
@@ -177,14 +179,11 @@ class BeliefState:
         for slot in informs:
             # sort by belief
             sorted_slot_cands = sorted(informs[slot].items(), key=lambda kv: kv[1], reverse=True)
-            # print('sorted_s: ', sorted_slot_cands)
             # restrict result count to specified maximum
             filtered_slot_cands = sorted_slot_cands[:max_results]
-            # print('filtered_s: ', filtered_slot_cands)
             # threshold by probabilities
             filtered_slot_cands = [slot_cand[0] for slot_cand in filtered_slot_cands
                                    if slot_cand[1] >= threshold]
-            # print('lst_filtered_s: ', filtered_slot_cands)                       
             if len(filtered_slot_cands) > 0:
                 # append results if any remain after filtering
                 if max_results == 1:
@@ -193,7 +192,6 @@ class BeliefState:
                 else:
                     # list
                     candidates[slot] = filtered_slot_cands
-        # print('inf_candi: ', candidates)
         return candidates
 
     def get_requested_slots(self, turn_idx: int = -1):
@@ -223,9 +221,7 @@ class BeliefState:
         candidates = self.get_most_probable_inf_beliefs(consider_NONE=True, threshold=0.7,
                                                         max_results=1)
         constraints = self._remove_dontcare_slots(candidates)
-        # print('con: ', constraints)
         db_matches = self.domain.find_entities(constraints, self.domain.get_informable_slots())
-        # print('db_m: ', db_matches)
         num_matches = len(db_matches)
 
         # check if matching db entities could be discriminated by more
@@ -245,5 +241,4 @@ class BeliefState:
                         # ->can use this slot to differentiate between entities
                         discriminable = True
                         break
-        # print('num_m: ', num_matches)
         return num_matches, discriminable

@@ -130,6 +130,9 @@ rule request(step_two)
 rule request(step_three)
     "what is {slot_synonyms("step_three")}"
 
+rule request(next_step)
+    "(what is|what's) (the )?next( step)?"
+
 rule request(chicken_stock)
     "do I need {slot_synonyms("chicken_stock")}"
     "does it need {slot_synonyms("chicken_stock")}"

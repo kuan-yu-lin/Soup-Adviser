@@ -130,16 +130,28 @@ class HandcraftedBST(Service):
             self.bs["informs"] = {}
             self.bs["requests"] = {}
 
+
         # Handle user acts
         for act in user_acts:
             if act.type == UserActionType.Request:
-                self.bs['requests'][act.slot] = act.score
+                # add two if statements to manually match the next_step request to the corresponding step -- Kuan
+                if act.slot == 'next_step' and self.bs['user_act_history'][-1] == 'step_one':
+                    self.bs['requests']['step_two'] = act.score
+                    self.bs['user_act_history'].append(act.slot)
+                elif act.slot == 'next_step' and self.bs['user_act_history'][-1] == 'step_two':
+                    self.bs['requests']['step_three'] = act.score
+                    self.bs['user_act_history'].append(act.slot)
+                else:
+                    self.bs['requests'][act.slot] = act.score
+                    self.bs['user_act_history'].append(act.slot)
             elif act.type == UserActionType.Inform:
                 # add informs and their scores to the beliefstate
                 if act.slot in self.bs["informs"]:
                     self.bs['informs'][act.slot][act.value] = act.score
+                    self.bs['user_act_history'].append(act.slot)
                 else:
                     self.bs['informs'][act.slot] = {act.value: act.score}
+                    self.bs['user_act_history'].append(act.slot)
             elif act.type == UserActionType.NegativeInform:
                 # reset mentioned value to zero probability
                 if act.slot in self.bs['informs']:
