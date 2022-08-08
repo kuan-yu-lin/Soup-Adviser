@@ -67,12 +67,11 @@ class Message(Command):
                 component.component_type == MessageComponentType.PYTHON_CODE:
                 code = component.value + '$'  # CodeParser expects end of statement
                 expression = CODE_PARSER.parse(code)[0]
-                # when value is a list with multiple name of ingredients
+                # when the type of 'expression.evaluate(parameters)' is a list -- Kuan
                 if type(expression.evaluate(parameters)) == list:
-                    item = expression.evaluate(parameters)[n]
-                    output += item
+                    # retrieve one item from the list and add to output sequentially -- Kuan
+                    output += expression.evaluate(parameters)[n]
                     n += 1
                 else:
                     output += expression.evaluate(parameters)
-                print('output: ', output)
         return output

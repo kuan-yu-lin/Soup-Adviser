@@ -104,7 +104,7 @@ class BeliefState:
         """
 
         # TODO: revist when we include probabilites, sets should become dictionaries
-        # add "user_act_history": OrderedDict() --> to record the history of user_acts -- Kuan
+        # add "user_act_history": lst() --> to record the history of user_acts -- Kuan
         belief_state = {"user_acts": set(),
                         "informs": {},
                         "requests": {},

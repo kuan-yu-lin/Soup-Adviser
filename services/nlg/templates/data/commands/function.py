@@ -78,7 +78,6 @@ class Function(Command):
 
     def apply(self, parameters: Memory = None) -> str:
         argument_values = [variable.value for variable in parameters.variables]
-        # print('argu_values: ', argument_values) --> ['total_time', '35', 'Easy Chili'], ['ingredient_3', ['ground_beef', 'tomato', 'bean'], 'Easy Chili']
         if self.free_parameter is not None:
             variables = self._build_memory_with_free_parameter(argument_values,
                                                                parameters.global_memory)
@@ -97,8 +96,6 @@ class Function(Command):
         assert len(self.argument_names) == len(argument_values)
         variables = Memory(global_memory)
         for i in range(len(self.argument_names)):
-            # print('arg_names: ', self.argument_names[i]) --> slot, value, name
-            # print('arg_val: ', argument_values[i]) --> ingredient_3, ['ground_beef', 'tomato', 'bean'], Easy Chili
             variables.add_variable(Variable(self.argument_names[i], argument_values[i]))
         return variables
 

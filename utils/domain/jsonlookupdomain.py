@@ -152,7 +152,6 @@ class JSONLookupDomain(Domain):
             select_clause = "*"
         query = 'SELECT {} FROM {} WHERE {}="{}";'.format(
             select_clause, self.get_domain_name(), self.get_primary_key(), entity_id)
-        print('fiae: ', self.query_db(query))
         return self.query_db(query)
 
     def find_info_about_ingredient(self, entity_id):
@@ -243,4 +242,3 @@ class JSONLookupDomain(Domain):
     def get_keyword(self):
         if "keyword" in self.ontology_json:
             return self.ontology_json['keyword']
-
