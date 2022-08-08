@@ -199,11 +199,11 @@ class HandcraftedPolicy(Service):
         # that info for the slots they have specified
         if name and beliefstate['requests']:
             requested_slots = beliefstate['requests']
-            # if it is a request for ingredient, use "find_info_about_ingredient" to get all the slots with value 1 --Kuan
+            # if it is a request for ingredient, use "find_info_about_ingredient" to get all the
+            # slots with value 1 -- Kuan
             if list(requested_slots.keys())[0] == 'ingredient':
                 return self.domain.find_info_about_ingredient(name)
             else:
-                # print('domain.entity: ', self.domain.find_info_about_entity(name, requested_slots)) --> [{'onion': 0}]
                 return self.domain.find_info_about_entity(name, requested_slots)
         # otherwise, issue a query to find all entities which satisfy the constraints the user
         # has given so far
@@ -443,6 +443,7 @@ class HandcraftedPolicy(Service):
 
         --LV
         """
+
         if beliefstate["requests"] or self.domain.get_primary_key() in beliefstate['informs']:
             self._convert_inform_by_primkey(q_results, sys_act, beliefstate)
 
@@ -465,18 +466,16 @@ class HandcraftedPolicy(Service):
 
         """
         sys_act.type = SysActionType.InformByName
-
         if q_results:
-            keys = []
             if list(beliefstate['requests'].keys())[0] == 'ingredient':
                 for result in q_results:
+                    # count the kinds of ingredients one recipe needs
+                    # match to corresponding nlg slot name, e.g. ingredient_5 lists out five different ingredients
                     sys_act.add_value(f"ingredient_{len(q_results)}", list(result.keys())[0])
-                    keys = list(result.keys())[:4]  # should represent all user specified constraints              
+                    keys = list(result.keys())[:4]  # should represent all user specified constraints
             else:
                 result = q_results[0]  # currently return just the first result
                 keys = list(result.keys())[:4]  # should represent all user specified constraints
-                # print('result: ', result)
-                # print('keys: ', keys)
                 # add slots + values (where available) to the sys_act
                 for k in keys:
                     if result[k] == 0:

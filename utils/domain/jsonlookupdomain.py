@@ -152,11 +152,13 @@ class JSONLookupDomain(Domain):
             select_clause = "*"
         query = 'SELECT {} FROM {} WHERE {}="{}";'.format(
             select_clause, self.get_domain_name(), self.get_primary_key(), entity_id)
+        print('fiae: ', self.query_db(query))
         return self.query_db(query)
 
     def find_info_about_ingredient(self, entity_id):
-        """ Find out all the column of ingredients with value = 1. Returns the values (stored in the data backend) of the specified slots for the
-            specified entity. e.g. {'onion': 1}
+        """ Find out all the column of ingredients with value = 1. Returns a list of the values
+            (stored in the data backend) of the specified slots for the specified entity.
+            e.g. {'onion': 1}
 
         Args:
             entity_id (str): primary key value of the entity
@@ -166,7 +168,12 @@ class JSONLookupDomain(Domain):
         
         -- Kuan
         """
-        column_names = ["chicken_stock", "chicken_broth", "cooked_chicken", "ground_beef", "tofu", "egg", "tomato", "potato", "carrot", "bean", "lentil", "corn", "broccoli", "evaporated_milk", "cornstarch", "japanese_turnip", "salsa", "hot_pepper_sauce", "scallion", "onion", "leek", "celery", "cumin", "ginger", "thyme", "miso", "pasta", "garlic", "mushroom", "basil", "kale", "avocado"]
+        column_names = ["chicken_stock", "chicken_broth", "cooked_chicken", "ground_beef", "tofu",
+                        "egg", "tomato", "potato", "carrot", "bean", "lentil", "corn", "broccoli",
+                        "evaporated_milk", "cornstarch", "japanese_turnip", "salsa",
+                        "hot_pepper_sauce", "scallion", "onion", "leek", "celery", "cumin",
+                        "ginger", "thyme", "miso", "pasta", "garlic", "mushroom", "basil", "kale",
+                        "avocado"]
         ingre_lst = []
         for c_names in column_names:
             req_slots_c_names = {c_names: 1.0}

@@ -313,8 +313,8 @@ class HandcraftedNLU(Service):
 
         """
         # Include the value of total_time not in the ontology list -- Kuan
-        user_utterance = self._revise_time(user_utterance)
-        # print('uu: ', user_utterance)
+        user_utterance = self._match_time(user_utterance)
+        
         # Iteration over all user informable slots and their slots
         for slot in self.USER_INFORMABLE:
             for value in self.inform_regex[slot]:
@@ -475,13 +475,13 @@ class HandcraftedNLU(Service):
         else:
             print('No language')
 
-    def _revise_time(self, user_utterance: str):
+    def _match_time(self, user_utterance: str):
         """
-        Check if the user_utterance is telling the time. Turn the value of time in user utterance
-        into one of the value in the total time in ontology.
+        Check if the user_utterance is telling the time. Match the value of time in user utterance
+        to one of the value in the total_time in ontology.
 
         Args:
-            user_utterance {str} --  text input fIrom user
+            user_utterance {str} --  text input from user
 
         Returns:
             user_utterance {str}

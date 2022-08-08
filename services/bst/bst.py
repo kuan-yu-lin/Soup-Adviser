@@ -130,13 +130,13 @@ class HandcraftedBST(Service):
             self.bs["informs"] = {}
             self.bs["requests"] = {}
 
-
         # Handle user acts
         for act in user_acts:
             if act.type == UserActionType.Request:
-                # add two if statements to manually match the next_step request to the corresponding step -- Kuan
+                # match the next_step request to the corresponding act.slot -- Kuan
                 if act.slot == 'next_step' and self.bs['user_act_history'][-1] == 'step_one':
                     self.bs['requests']['step_two'] = act.score
+                    # create one new key 'user_act_history' to record all the user_acts happened before -- Kuan
                     self.bs['user_act_history'].append(act.slot)
                 elif act.slot == 'next_step' and self.bs['user_act_history'][-1] == 'step_two':
                     self.bs['requests']['step_three'] = act.score
