@@ -5,13 +5,11 @@ rule inform(name)
     "I am looking for {synonyms("name", name)}( soup)?"
     "I want the recipe for {synonyms("name", name)}( soup)?"
     "I want {synonyms("name", name)}( soup)?"
+    "{synonyms("name", name)}( soup)?"
 
 rule inform(total_time)
     "I( only)? have {synonyms("total_time", total_time)} to( cook| make it| make the soup)"
     "{synonyms("total_time", total_time)}"
-
-# how to write the nlu rule for "I have 30 minutes", then I get all the recipes that the total_time of them are less than 30 minutes. where in policy?
-# how to set a rule for making "I have 1 hour and 30 minute" into total_time = "90"?
 
 rule inform(chicken_stock)
     "I have {synonyms("chicken_stock", chicken_stock)} chicken stock"
