@@ -502,27 +502,13 @@ class HandcraftedNLU(Service):
         elif 'minute' in user_utterance:
             m = re.findall(r'\d+', user_utterance)[0]
             total_min += int(m)
-        else:
-            return user_utterance
    
         time_lst = [15, 20, 35, 40, 55, 60, 90, 150]
         if total_min not in time_lst:
-            if 20 > total_min >= 15:
-                user_utterance = 'I have 15 minutes'
-            elif 35 > total_min >= 20:
-                user_utterance = 'I have 20 minutes'
-            elif 40 > total_min >= 35:
-                user_utterance = 'I have 35 minutes'
-            elif 55 > total_min >= 40:
-                user_utterance = 'I have 40 minutes'
-            elif 60 > total_min >= 55:
-                user_utterance = 'I have 55 minutes'
-            elif 90 > total_min >= 60:
-                user_utterance = 'I have 60 minutes'
-            elif 150 > total_min >= 90:
-                user_utterance = 'I have 90 minutes'
-            elif total_min >= 150:
-                user_utterance = 'I have 150 minutes'
-        
+            for n in range(len(time_lst)):
+                if time_lst[n] < total_min:
+                    user_utterance = 'I have' + str(time_lst[n]) + 'minutes'
+        else:
+            user_utterance = 'I have' + str(total_min) + 'minutes'    
+            
         return user_utterance
-        

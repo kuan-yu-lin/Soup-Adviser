@@ -9,9 +9,7 @@ from services.hci import ConsoleOutput
 
 # domaintrack also work in single domain system
 from services.domain_tracker import DomainTracker
-
 from services.service import DialogSystem
-
 from utils.domain.jsonlookupdomain import JSONLookupDomain
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@ rule inform(tofu)
     "I have tofu"
 
 rule inform(egg)
-    "I have {synonyms("egg", egg)} egg(s)?"
+    "I have egg(s)?"
 
 rule inform(tomato)
     "I have tomato(es)?"
