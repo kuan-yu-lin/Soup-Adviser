@@ -134,13 +134,24 @@ class HandcraftedBST(Service):
         for act in user_acts:
             if act.type == UserActionType.Request:
                 # match the next_step request to the corresponding act.slot -- Kuan
+                print('act: ', act)
+                print('act.slot: ', act.slot)
                 if act.slot == 'next_step' and self.bs['user_act_history'][-1] == 'step_one':
                     self.bs['requests']['step_two'] = act.score
-                    # create one new key 'user_act_history' to record all the user_acts happened before -- Kuan
-                    self.bs['user_act_history'].append(act.slot)
+                    self.bs['user_act_history'].append('step_two')
+                    print('bs of next_step: ', self.bs)
                 elif act.slot == 'next_step' and self.bs['user_act_history'][-1] == 'step_two':
                     self.bs['requests']['step_three'] = act.score
-                    self.bs['user_act_history'].append(act.slot)
+                    self.bs['user_act_history'].append('step_three')
+                # match the last_step request to the corresponding act.slot -- Kuan
+                elif act.slot == 'last_step' and self.bs['user_act_history'][-1] == 'step_two':
+                    self.bs['requests']['step_one'] = act.score
+                    self.bs['user_act_history'].append('step_one')
+                    print('bs of last_step: ', self.bs)
+                elif act.slot == 'last_step' and self.bs['user_act_history'][-1] == 'step_three':
+                    self.bs['requests']['step_two'] = act.score
+                    self.bs['user_act_history'].append('step_two')
+                    print('bs of last_step: ', self.bs)
                 else:
                     self.bs['requests'][act.slot] = act.score
                     self.bs['user_act_history'].append(act.slot)

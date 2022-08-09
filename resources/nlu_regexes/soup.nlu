@@ -130,6 +130,10 @@ rule request(step_two)
 rule request(step_three)
     "what is {slot_synonyms("step_three")}"
 
+rule request(last_step)
+    "(what is|what's) (the )?last( step)?"
+    "(what is|what's) (the )?previous( step)?"
+
 rule request(next_step)
     "(what is|what's) (the )?next( step)?"
 
