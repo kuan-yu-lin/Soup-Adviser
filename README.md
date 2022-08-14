@@ -1,19 +1,25 @@
-# Question for soup.nlu:
+# Soup ADVISER
 
-## inform()
-1. how to write the nlu rule for "I have 30 minutes", then I get all the recipes that the TotalTime of them are less than 30 minutes.
+###### University Stuttgart
+###### Spoken Dialog System Project, Sommer 2022
 
-2. will the rule for ingredient work? the column name are the name of Ingredients. 
-   should we copy the rule and apply it to each Ingredient name?
-   is there a better way to present the following rule:
-rule inform(Ingredient)
-    "I( only)? have {Ingredient}"
-    "I( only)? have {Ingredient} and {Ingredient}"
-    "I( only)? have {Ingredient}, {Ingredient} and {Ingredient}"
+## Member Information
 
-## request()
-3. "what do I do next" should this question be the rule for useract: 'repeat'?
+* [Kuan-Yu Lin](https://github.com/kuan-yu-lin)
+* [Tanishq Quraishi](https://github.com/tanishqquraishi)
 
-4. should we set for getting 3 steps at one time? how?
+## Project Information
 
-5. we want it to return all Ingredients!!!
+### Description
+
+Soup ADVISER is a dialog system, and it is built based on the ADVISER 2.0 toolkit. It is designed for users who need a soup recipe to deal with hunger. Users can ask for a recipe with the name of the soup, with the time they have to cook, or with the ingredients they have in hand. Further, users can ask for the cooking steps or the all the necessary ingredients after Soup ADVISER suggests one recipe for users.  
+
+### Database
+
+Recipes were sourced from [Comfortable Food](https://comfortablefood.com/35-easy-soup-recipes-with-few-ingredients/) and adapted to meet the requirements for the project.
+
+## Run
+
+```
+    python3 main.py
+```
