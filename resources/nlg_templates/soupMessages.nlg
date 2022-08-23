@@ -1,10 +1,10 @@
 # ---------------NEW RULES - SOUP ADVISER MESSAGES-------------------------#
 
-template welcomemsg(): "Hi! I'm Soup ADVIER. How may I help you?"
+template welcomemsg(): "Hi! I'm Soup ADVIER. Are you hungry? How may I help you?"
 template welcomemsg(help): "Sorry, I don't understand you. Could you rephrase that?"
 template welcomemsg(more) : "Can I help you with anything else?"
 template bad() : "Sorry I am a bit confused; please tell me again what you are looking for."
-template closingmsg() : "Thank you, goodbye."
+template closingmsg() : "Thank you, goodbye. Enjoy your meal."
 
 # System Requests - User Informable
 
