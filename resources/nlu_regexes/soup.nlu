@@ -1,9 +1,8 @@
 # user informable slots are name, total_time and ingredients
 
 rule inform(name)
-    "I would like to have {synonyms("name", name)}( soup)?"
-    "I am looking for {synonyms("name", name)}( soup)?"
-    "I want the recipe for {synonyms("name", name)}( soup)?"
+    "I (want |would like to have )(the recipe for |the recipe of )?{synonyms("name", name)}( soup)?"
+    "(I am |I'm )looking for {synonyms("name", name)}( soup)?"
     "I want {synonyms("name", name)}( soup)?"
     "{synonyms("name", name)}( soup)?"
 
@@ -12,100 +11,100 @@ rule inform(total_time)
     "{synonyms("total_time", total_time)}"
 
 rule inform(chicken_stock)
-    "I have chicken stock"
+    "I have( a| the| one| 1)? chicken stock"
 
 rule inform(chicken_broth)
-    "I have chicken broth"
+    "I have( a| the| one| 1)? chicken broth"
 
 rule inform(cooked_chicken)
-    "I have cooked chicken"
+    "I have( a| the| one| 1)? cooked chicken"
 
 rule inform(ground_beef)
-    "I have( ground)? beef"
+    "I have( a| the| one| 1)?( ground)? beef"
 
 rule inform(tofu)
-    "I have tofu"
+    "I have( a| the| one| 1)? tofu"
 
 rule inform(egg)
-    "I have egg(s)?"
+    "I have( a| the| one| 1)? egg(s)?"
 
 rule inform(tomato)
-    "I have tomato(es)?"
+    "I have( a| the| one| 1)? tomato(es)?"
 
 rule inform(potato)
-    "I have potato(es)?"
+    "I have( a| the| one| 1)? potato(es)?"
 
 rule inform(carrot)
-    "I have carrot(s)?"
+    "I have( a| the| one| 1)? carrot(s)?"
 
 rule inform(bean)
-    "I have bean(s)?"
+    "I have( a| the| one| 1)? bean(s)?"
 
 rule inform(lentil)
-    "I have lentil(s)?"
+    "I have( a| the| one| 1)? lentil(s)?"
 
 rule inform(corn)
-    "I have corn(s)?"
+    "I have( a| the| one| 1)? corn(s)?"
 
 rule inform(broccoli)
-    "I have broccoli(s)?"
+    "I have( a| the| one| 1)? broccoli(s)?"
 
 rule inform(evaporated_milk)
-    "I have evaporated milk"
+    "I have( a| the| one| 1)? evaporated milk"
 
 rule inform(cornstarch)
-    "I have cornstarch"
+    "I have( a| the| one| 1)? cornstarch"
 
 rule inform(japanese_turnip)
-    "I have (japanese turnip|radish)"
+    "I have( a| the| one| 1)? (japanese turnip|radish)"
 
 rule inform(salsa)
-    "I have salsa"
+    "I have( a| the| one| 1)? salsa"
 
 rule inform(hot_pepper_sauce)
-    "I have hot( pepper) sauce"
+    "I have( a| the| one| 1)? hot( pepper) sauce"
 
 rule inform(scallion)
-    "I have scallion(s)?"
+    "I have( a| the| one| 1)? scallion(s)?"
 
 rule inform(onion)
-    "I have onion(s)?"
+    "I have( a| the| one| 1)? onion(s)?"
 
 rule inform(leek)
-    "I have leek(s)?"
+    "I have( a| the| one| 1)? leek(s)?"
 
 rule inform(celery)
-    "I have (celery|celeries)"
+    "I have( a| the| one| 1)? (celery|celeries)"
 
 rule inform(cumin)
-    "I have cumin(s)?"
+    "I have( a| the| one| 1)? cumin(s)?"
 
 rule inform(ginger)
-    "I have ginger(s)?"
+    "I have( a| the| one| 1)? ginger(s)?"
 
 rule inform(thyme)
-    "I have thyme(s)?"
+    "I have( a| the| one| 1)? thyme(s)?"
 
 rule inform(miso)
-    "I have miso(s)?"
+    "I have( a| the| one| 1)? miso(s)?"
 
 rule inform(pasta)
-    "I have pasta(s)?"
+    "I have( a| the| one| 1)? pasta(s)?"
 
 rule inform(garlic)
-    "I have garlic(s)?"
+    "I have( a| the| one| 1)? garlic(s)?"
 
 rule inform(mushroom)
-    "I have mushroom(s)?"
+    "I have( a| the| one| 1)? mushroom(s)?"
 
 rule inform(basil)
-    "I have basil(s)?"
+    "I have( a| the| one| 1)? basil(s)?"
 
 rule inform(kale)
-    "I have kale(s)?"
+    "I have( a| the| one| 1)? kale(s)?"
 
 rule inform(avocado)
-    "I have avocado(s)?"
+    "I have( a| the| one| 1)? avocado(s)?"
 
 
 # All slots are requestable
@@ -117,16 +116,16 @@ rule request(ingredient)
     "what do I need( to make( it| the soup| this soup))?"
 
 rule request(total_time)
-    "how long do I need( to cook it)?"
+    "how (long|much time) do I need( to cook it)?"
 
 rule request(step_one)
-    "what is {slot_synonyms("step_one")}"
+    "(what is|what's) {slot_synonyms("step_one")}"
 
 rule request(step_two)
-    "what is {slot_synonyms("step_two")}"
+    "(what is|what's) {slot_synonyms("step_two")}"
 
 rule request(step_three)
-    "what is {slot_synonyms("step_three")}"
+    "(what is|what's) {slot_synonyms("step_three")}"
 
 rule request(last_step)
     "(what is|what's) (the )?last( step)?"

@@ -314,7 +314,6 @@ class HandcraftedNLU(Service):
         """
         # Include the value of total_time not in the ontology list -- Kuan
         user_utterance = self._match_time(user_utterance)
-        
         # Iteration over all user informable slots and their slots
         for slot in self.USER_INFORMABLE:
             for value in self.inform_regex[slot]:
@@ -341,6 +340,13 @@ class HandcraftedNLU(Service):
         Returns:
 
         """
+        # yes-no respond to system request specific ingredient, convert the 
+        # value of yes/no into string 1/0 to match the value in data --- kuan
+        if 'yes' in user_utterance.lower():
+            value = '1'
+        elif 'no' in user_utterance.lower():
+            value = '0'
+        
         user_act = UserAct(text=user_utterance, act_type=UserActionType.Inform,
                            slot=slot, value=value)
         self.user_acts.append(user_act)

@@ -72,6 +72,9 @@ class Message(Command):
                     # retrieve one item from the list and add to output sequentially -- Kuan
                     output += expression.evaluate(parameters)[n]
                     n += 1
+                # turn value '0' into 'no'
+                elif expression.evaluate(parameters) == '0':
+                    output += 'no'
                 else:
                     output += expression.evaluate(parameters)
         return output

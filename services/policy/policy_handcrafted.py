@@ -467,21 +467,25 @@ class HandcraftedPolicy(Service):
         """
         sys_act.type = SysActionType.InformByName
         if q_results:
+            # system responds with all ingredients of the recipe -- Kuan
             if list(beliefstate['requests'].keys())[0] == 'ingredient':
                 for result in q_results:
-                    # count the kinds of ingredients one recipe needs
-                    # match to corresponding nlg slot name, e.g. ingredient_5 lists out five different ingredients
-                    sys_act.add_value(f"ingredient_{len(q_results)}", list(result.keys())[0])
+                    # count the kinds of ingredients one recipe needs and match it to corresponding 
+                    # nlg template, e.g. ingredient_5 -- Kuan
+                    # the form to add into value space: 'value + ' ' + slot name/key' e.g. '1 tofu' 
+                    # -- Kuan
+                    sys_act.add_value(f"ingredient_{len(q_results)}", (list(result.values())[0] 
+                                                                    + ' ' + list(result.keys())[0]))
                     keys = list(result.keys())[:4]  # should represent all user specified constraints
             else:
                 result = q_results[0]  # currently return just the first result
                 keys = list(result.keys())[:4]  # should represent all user specified constraints
                 # add slots + values (where available) to the sys_act
+                # system responds to request of specific ingredient, i.e. 'do I need onion', reply 
+                # 'no' instead of '0' -- Kuan
                 for k in keys:
                     if result[k] == 0:
-                        res = 'no ' + k
-                    elif result[k] == 1:
-                        res = str(result[k]) + ' ' + k
+                        res = 'no'
                     elif result[k]:
                         res = str(result[k])
                     else:

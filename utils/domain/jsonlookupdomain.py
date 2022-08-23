@@ -178,7 +178,14 @@ class JSONLookupDomain(Domain):
             req_slots_c_names = {c_names: 1.0}
             ingre = self.find_info_about_entity(entity_id=entity_id, requested_slots=req_slots_c_names)
             if list(ingre[0].values())[0] == 1:
-                ingre_lst += ingre
+                # get rid of underscore in the slot name -- Kuan
+                ingre_no_underscore = ''
+                for letter in list(ingre[0].keys())[0]:
+                    if letter == '_':
+                        ingre_no_underscore += ' '
+                    else:
+                        ingre_no_underscore += letter
+                ingre_lst.append({ingre_no_underscore: str(list(ingre[0].values())[0])})
         return ingre_lst
 
     def query_db(self, query_str):
