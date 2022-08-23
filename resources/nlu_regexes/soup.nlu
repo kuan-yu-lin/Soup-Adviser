@@ -642,7 +642,6 @@ function slot_synonyms(slot)
         "step 3"
         "step three"
         "(the )?third step"
-        "(the )?last step"
     if slot = "chicken_stock"
         "chicken stock"
     if slot = "chicken_broth"
